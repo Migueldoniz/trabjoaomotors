@@ -1,11 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package Controller;
-
 
 public abstract class Veiculo extends Operacoes {
     private String veicNumChassi;
@@ -96,5 +89,4 @@ public abstract class Veiculo extends Operacoes {
     public void setVeicStatus(String veicStatus) {
         this.veicStatus = veicStatus;
     }
-    
 }

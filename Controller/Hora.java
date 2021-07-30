@@ -1,5 +1,7 @@
 package Controller;
-//import package View;
+
+import javax.swing.JOptionPane;
+
 
 public class Hora
 {
@@ -16,7 +18,7 @@ public class Hora
         if((hora > -1 && hora < 24) && (minuto > -1 && minuto < 60))
             this.horaFormatada = hora + ":" + minuto;
         else
-            System.out.println("Horario invalido!");
+            JOptionPane.showMessageDialog(null, "Horário inválido!", "Erro", JOptionPane.ERROR_MESSAGE);
     }
     public String getHora()
     {

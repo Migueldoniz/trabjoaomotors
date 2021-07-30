@@ -52,7 +52,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -258,6 +258,9 @@
                 </Property>
                 <Property name="name" type="java.lang.String" value="txt_nome" noResource="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_nomeFocusGained"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_rg">
               <Properties>
@@ -278,6 +281,9 @@
                 </Property>
                 <Property name="name" type="java.lang.String" value="txt_cpf" noResource="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_rgFocusGained"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_nasc">
               <Properties>
@@ -299,6 +305,7 @@
                 <Property name="name" type="java.lang.String" value="txt_nasc" noResource="true"/>
               </Properties>
               <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_nascFocusGained"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_nascActionPerformed"/>
               </Events>
             </Component>
@@ -321,6 +328,9 @@
                 </Property>
                 <Property name="name" type="java.lang.String" value="txt_admi" noResource="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_admFocusGained"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_sal">
               <Properties>
@@ -342,6 +352,7 @@
                 <Property name="name" type="java.lang.String" value="txt_sal" noResource="true"/>
               </Properties>
               <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_salFocusGained"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_salActionPerformed"/>
               </Events>
             </Component>
@@ -372,6 +383,7 @@
                 <Property name="name" type="java.lang.String" value="txt_anos" noResource="true"/>
               </Properties>
               <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_anosFocusGained"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_anosActionPerformed"/>
               </Events>
             </Component>
@@ -394,6 +406,9 @@
                 </Property>
                 <Property name="name" type="java.lang.String" value="txt_busca" noResource="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_buscaFocusGained"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btn_buscar1">
               <Properties>
@@ -507,6 +522,9 @@
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="name" type="java.lang.String" value="btn_salvar" noResource="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_salvarActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_email">
               <Properties>
@@ -527,6 +545,9 @@
                 </Property>
                 <Property name="name" type="java.lang.String" value="txt_nome" noResource="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_emailFocusGained"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_senha">
               <Properties>
@@ -547,6 +568,9 @@
                 </Property>
                 <Property name="name" type="java.lang.String" value="txt_cpf" noResource="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_senhaFocusGained"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

@@ -5,6 +5,15 @@
  */
 package View;
 
+import Controller.Data;
+import Controller.Gerente;
+import java.awt.Color;
+import java.awt.Font;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author sarah
@@ -82,6 +91,11 @@ public class JFormCadastroGerente extends javax.swing.JFrame {
         txt_nome.setEnabled(false);
         txt_nome.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_nome.setName("txt_nome"); // NOI18N
+        txt_nome.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_nomeFocusGained(evt);
+            }
+        });
 
         txt_rg.setForeground(new java.awt.Color(153, 153, 153));
         txt_rg.setText(" RG");
@@ -89,6 +103,11 @@ public class JFormCadastroGerente extends javax.swing.JFrame {
         txt_rg.setEnabled(false);
         txt_rg.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_rg.setName("txt_cpf"); // NOI18N
+        txt_rg.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_rgFocusGained(evt);
+            }
+        });
 
         txt_nasc.setForeground(new java.awt.Color(153, 153, 153));
         txt_nasc.setText(" Data de nascimento: __/__/____");
@@ -96,6 +115,11 @@ public class JFormCadastroGerente extends javax.swing.JFrame {
         txt_nasc.setEnabled(false);
         txt_nasc.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_nasc.setName("txt_nasc"); // NOI18N
+        txt_nasc.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_nascFocusGained(evt);
+            }
+        });
         txt_nasc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_nascActionPerformed(evt);
@@ -108,6 +132,11 @@ public class JFormCadastroGerente extends javax.swing.JFrame {
         txt_adm.setEnabled(false);
         txt_adm.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_adm.setName("txt_admi"); // NOI18N
+        txt_adm.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_admFocusGained(evt);
+            }
+        });
 
         txt_sal.setForeground(new java.awt.Color(153, 153, 153));
         txt_sal.setText(" Salário");
@@ -115,6 +144,11 @@ public class JFormCadastroGerente extends javax.swing.JFrame {
         txt_sal.setEnabled(false);
         txt_sal.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_sal.setName("txt_sal"); // NOI18N
+        txt_sal.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_salFocusGained(evt);
+            }
+        });
         txt_sal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_salActionPerformed(evt);
@@ -129,6 +163,11 @@ public class JFormCadastroGerente extends javax.swing.JFrame {
         txt_anos.setEnabled(false);
         txt_anos.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_anos.setName("txt_anos"); // NOI18N
+        txt_anos.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_anosFocusGained(evt);
+            }
+        });
         txt_anos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_anosActionPerformed(evt);
@@ -141,6 +180,11 @@ public class JFormCadastroGerente extends javax.swing.JFrame {
         txt_busca.setEnabled(false);
         txt_busca.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_busca.setName("txt_busca"); // NOI18N
+        txt_busca.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_buscaFocusGained(evt);
+            }
+        });
 
         btn_buscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pesquisa-de-lupa.png"))); // NOI18N
         btn_buscar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
@@ -202,6 +246,11 @@ public class JFormCadastroGerente extends javax.swing.JFrame {
         btn_salvar.setText("Confirmar");
         btn_salvar.setEnabled(false);
         btn_salvar.setName("btn_salvar"); // NOI18N
+        btn_salvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salvarActionPerformed(evt);
+            }
+        });
 
         txt_email.setForeground(new java.awt.Color(153, 153, 153));
         txt_email.setText(" Email");
@@ -209,6 +258,11 @@ public class JFormCadastroGerente extends javax.swing.JFrame {
         txt_email.setEnabled(false);
         txt_email.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_email.setName("txt_nome"); // NOI18N
+        txt_email.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_emailFocusGained(evt);
+            }
+        });
 
         txt_senha.setForeground(new java.awt.Color(153, 153, 153));
         txt_senha.setText(" Senha");
@@ -216,6 +270,11 @@ public class JFormCadastroGerente extends javax.swing.JFrame {
         txt_senha.setEnabled(false);
         txt_senha.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_senha.setName("txt_cpf"); // NOI18N
+        txt_senha.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_senhaFocusGained(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -336,6 +395,7 @@ public class JFormCadastroGerente extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_nascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nascActionPerformed
@@ -356,6 +416,9 @@ public class JFormCadastroGerente extends javax.swing.JFrame {
 
     private void btn_buscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar1ActionPerformed
         //Verificar se achou o número, se achou fazer tudo aqui embaixo
+        String rg;
+        boolean flag = false;
+        
         txt_nome.setText("");
         txt_rg.setText("");
         txt_anos.setText("");
@@ -364,16 +427,60 @@ public class JFormCadastroGerente extends javax.swing.JFrame {
         txt_sal.setText("");
         txt_email.setText("");
         txt_senha.setText("");
-
+        
+        btn_salvar.setEnabled(true);
         txt_busca.setEnabled(false);
         btn_buscar1.setEnabled(false);
 
         //Carregar os dados aqui
+        rg = txt_busca.getText();
+        if(rg.isEmpty() || rg.equals("Buscar pelo número do RG"))
+        {
+            JOptionPane.showMessageDialog(null, "Insira o número do RG!", "Erro", JOptionPane.ERROR_MESSAGE);
+            JFormCadastroGerente.this.setVisible(false);
+        }
+        
+        else
+        {
+            try
+            {
+                FileReader arq = new FileReader(".//src//Model//gerente.txt");
+                BufferedReader lerArq = new BufferedReader(arq);
+                while(lerArq.ready() && flag == false)
+                {
+                    String linha = lerArq.readLine();
+                    String[] dadoSeparado = linha.split(";");
+                    if(dadoSeparado[0].equals(rg))
+                    {
+                        flag = true;
+                        
+                        txt_rg.setText(rg);
+                        txt_nome.setText(dadoSeparado[1]);
+                        txt_anos.setText(dadoSeparado[8]);
+                        txt_nasc.setText(dadoSeparado[2]);
+                        txt_adm.setText(dadoSeparado[3]);
+                        txt_sal.setText(dadoSeparado[4]);
+                        txt_email.setText(dadoSeparado[6]);
+                        txt_senha.setText(dadoSeparado[7]);
+                    }
+                }
+                
+                lerArq.close();
+                if(flag == false)
+                     JOptionPane.showMessageDialog(null, "Número do RG não encontrado!", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+            
+            catch(IOException e)
+            {
+                 JOptionPane.showMessageDialog(null, "Erro ao buscar dados no arquivo!", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+                
+        }
 
         if(this.btn_alterar.isEnabled())
         {
             txt_nome.setEnabled(true);
-            txt_rg.setEnabled(true);
+            txt_rg.setEnabled(false);
             txt_anos.setEnabled(true);
             txt_nasc.setEnabled(true);
             txt_adm.setEnabled(true);
@@ -384,7 +491,14 @@ public class JFormCadastroGerente extends javax.swing.JFrame {
 
         else if(this.btn_excluir.isEnabled())
         {
-            //Chamar o método delete
+            txt_nome.setEnabled(false);
+            txt_rg.setEnabled(false);
+            txt_anos.setEnabled(false);
+            txt_nasc.setEnabled(false);
+            txt_adm.setEnabled(false);
+            txt_sal.setEnabled(false);
+            txt_email.setEnabled(false);
+            txt_senha.setEnabled(false);
         }
     }//GEN-LAST:event_btn_buscar1ActionPerformed
 
@@ -404,24 +518,207 @@ public class JFormCadastroGerente extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_cadastrarActionPerformed
 
     private void btn_alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterarActionPerformed
+        txt_busca.setText("");
         txt_busca.setEnabled(true);
         btn_buscar1.setEnabled(true);
         btn_cadastrar.setEnabled(false);
         btn_excluir.setEnabled(false);
-        btn_salvar.setEnabled(true);
+        btn_salvar.setEnabled(false);
     }//GEN-LAST:event_btn_alterarActionPerformed
 
     private void btn_excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirActionPerformed
+        txt_busca.setText("");
         txt_busca.setEnabled(true);
         btn_buscar1.setEnabled(true);
         btn_cadastrar.setEnabled(false);
         btn_alterar.setEnabled(false);
-        btn_salvar.setEnabled(true);
+        btn_salvar.setEnabled(false);
     }//GEN-LAST:event_btn_excluirActionPerformed
 
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
         JFormCadastroGerente.this.setVisible(false);
     }//GEN-LAST:event_btn_cancelarActionPerformed
+
+    private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
+        if((this.btn_alterar.isEnabled() == false && this.btn_excluir.isEnabled() == false) || (btn_cadastrar.isEnabled() == false && btn_excluir.isEnabled() == false))
+        {
+            String nome, rg, email, senha, data_nasc, data_adm;
+            double salario;
+            int anos;
+            Data data = new Data();
+            Data data1 = new Data();
+            
+            rg = txt_rg.getText();
+            nome = txt_nome.getText();
+            email = txt_email.getText();
+            senha = txt_senha.getText();
+            salario = Double.parseDouble(txt_sal.getText());
+            anos = Integer.parseInt(txt_anos.getText());
+            data_nasc = txt_nasc.getText();
+            data_adm = txt_adm.getText();
+            
+            if(rg.isEmpty() || rg.equals("RG"))
+                  JOptionPane.showMessageDialog(null, "Campo RG não preenchido!", "Erro", JOptionPane.ERROR_MESSAGE);
+            
+            else if(nome.isEmpty() || nome.equals("Nome"))
+                  JOptionPane.showMessageDialog(null, "Campo nome não preenchido!", "Erro", JOptionPane.ERROR_MESSAGE);
+            
+            else if(email.isEmpty() || email.equals("Email") || email.contains("@") == false)
+                JOptionPane.showMessageDialog(null, "Campo email não preenchido ou inválido!", "Erro", JOptionPane.ERROR_MESSAGE);
+            
+            else if(nome.isEmpty() || nome.equals("Senha"))
+                JOptionPane.showMessageDialog(null, "Campo senha não preenchido!", "Erro", JOptionPane.ERROR_MESSAGE);
+            
+            else if(salario < 0)
+                JOptionPane.showMessageDialog(null, "Salário inválido!", "Erro", JOptionPane.ERROR_MESSAGE);
+            
+            else if(anos < 0)
+                JOptionPane.showMessageDialog(null, "Anos de exp. inválido!", "Erro", JOptionPane.ERROR_MESSAGE);
+            
+            else if(data_nasc.isEmpty() || data_nasc.equals("Data de nascimento: __/__/____"))
+                JOptionPane.showMessageDialog(null, "Campo data de nascimento não preenchido!", "Erro", JOptionPane.ERROR_MESSAGE);
+            
+            else if(data_adm.isEmpty() || data_adm.equals("Data de admissão: __/__/____"))
+                JOptionPane.showMessageDialog(null, "Campo data de admissão não preenchido!", "Erro", JOptionPane.ERROR_MESSAGE);
+            
+            else
+            {
+                data.setData(data_nasc);
+                data1.setData(data_adm);
+                
+                Gerente gerente = new Gerente(rg, nome, data, data1, salario, email, senha, anos);
+                if(this.btn_alterar.isEnabled() == false && this.btn_excluir.isEnabled() == false)
+                {
+                      gerente.cadastrar();
+                      JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
+                }
+                
+                else
+                {
+                    gerente.alterar();
+                    JOptionPane.showMessageDialog(null, "Gerente alterado com sucesso!", "Alteração", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+   
+        }
+        
+        else if(btn_cadastrar.isEnabled() == false && btn_alterar.isEnabled() == false) //Excluir
+        {
+            Gerente gerente = new Gerente(txt_rg.getText());
+            gerente.excluir();
+            JOptionPane.showMessageDialog(null, "Gerente excluído com sucesso!", "Exclusão", JOptionPane.INFORMATION_MESSAGE);
+           
+        }
+        
+        btn_alterar.setEnabled(true);
+        btn_excluir.setEnabled(true);
+        btn_cadastrar.setEnabled(true);
+        btn_salvar.setEnabled(false);
+        
+        Font fonte = new Font("Tahoma", Font.PLAIN, 11);
+        
+        txt_rg.setFont(fonte);
+        txt_rg.setForeground(Color.LIGHT_GRAY);
+        txt_nome.setFont(fonte);
+        txt_nome.setForeground(Color.LIGHT_GRAY);
+        txt_email.setFont(fonte);
+        txt_email.setForeground(Color.LIGHT_GRAY);
+        txt_senha.setFont(fonte);
+        txt_senha.setForeground(Color.LIGHT_GRAY);
+        txt_sal.setFont(fonte);
+        txt_sal.setForeground(Color.LIGHT_GRAY);
+        txt_anos.setFont(fonte);
+        txt_anos.setForeground(Color.LIGHT_GRAY);
+        txt_nasc.setFont(fonte);
+        txt_nasc.setForeground(Color.LIGHT_GRAY);
+        txt_adm.setFont(fonte);
+        txt_adm.setForeground(Color.LIGHT_GRAY);
+        txt_busca.setFont(fonte);
+        txt_busca.setForeground(Color.LIGHT_GRAY);
+        
+        txt_rg.setText("RG");
+        txt_nome.setText("Nome");
+        txt_email.setText("Email");
+        txt_senha.setText("Senha");
+        txt_sal.setText("Salário");
+        txt_anos.setText("Anos de experiência");
+        txt_nasc.setText("Data de nascimento: __/__/____");
+        txt_adm.setText("Data de admissão: __/__/____");
+        txt_busca.setText("Buscar pelo número do RG");
+
+        txt_rg.setEnabled(false);
+        txt_nome.setEnabled(false);
+        txt_email.setEnabled(false);
+        txt_senha.setEnabled(false);
+        txt_sal.setEnabled(false);
+        txt_anos.setEnabled(false);
+        txt_nasc.setEnabled(false);
+        txt_adm.setEnabled(false);
+        txt_busca.setEnabled(false);
+    }//GEN-LAST:event_btn_salvarActionPerformed
+
+    private void txt_buscaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_buscaFocusGained
+        txt_busca.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_busca.setFont(fonte);
+        txt_busca.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_buscaFocusGained
+
+    private void txt_nomeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nomeFocusGained
+        txt_nome.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_nome.setFont(fonte);
+        txt_nome.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_nomeFocusGained
+
+    private void txt_rgFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_rgFocusGained
+        txt_rg.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_rg.setFont(fonte);
+        txt_rg.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_rgFocusGained
+
+    private void txt_emailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_emailFocusGained
+        txt_email.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_email.setFont(fonte);
+        txt_email.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_emailFocusGained
+
+    private void txt_senhaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_senhaFocusGained
+        txt_senha.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_senha.setFont(fonte);
+        txt_senha.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_senhaFocusGained
+
+    private void txt_nascFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nascFocusGained
+        txt_nasc.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_nasc.setFont(fonte);
+        txt_nasc.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_nascFocusGained
+
+    private void txt_admFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_admFocusGained
+        txt_adm.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_adm.setFont(fonte);
+        txt_adm.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_admFocusGained
+
+    private void txt_salFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_salFocusGained
+        txt_sal.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_sal.setFont(fonte);
+        txt_sal.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_salFocusGained
+
+    private void txt_anosFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_anosFocusGained
+        txt_anos.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_anos.setFont(fonte);
+        txt_anos.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_anosFocusGained
 
     /**
      * @param args the command line arguments

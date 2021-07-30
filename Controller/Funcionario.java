@@ -82,6 +82,21 @@ public abstract class Funcionario extends Operacoes{
         this.funcSenha = funcSenha;
     }
 
+    public Funcionario(String funcRG)
+    {
+        this.funcRG = funcRG;
+    }
+    
+    public Funcionario(String funcRG, String funcNome, Data funcDataNasc, Data funcDataAdmissao, double funcSalario, String funcEmail, String funcSenha) {
+        this.funcRG = funcRG;
+        this.funcNome = funcNome;
+        this.funcDataNasc = funcDataNasc;
+        this.funcDataAdmissao = funcDataAdmissao;        
+        this.funcSalario = funcSalario;
+        this.funcEmail = funcEmail;
+        this.funcSenha = funcSenha;
+    }
+
     public Funcionario(String funcRG, String funcNome, Data funcDataNasc, Data funcDataAdmissao, double funcSalario, String funcGouV, String funcEmail, String funcSenha) {
         this.funcRG = funcRG;
         this.funcNome = funcNome;

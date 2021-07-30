@@ -19,18 +19,22 @@ public class Gerente extends Funcionario {
         super(funcEmail, funcSenha);
     }
 
-    public Gerente(String funcRG, String funcNome, Data funcDataNasc, Data funcDataAdmissao, double funcSalario, String funcGouV, String funcEmail, String funcSenha, int grntAnosExp) {
-        super(funcRG, funcNome, funcDataNasc, funcDataAdmissao, funcSalario, funcGouV, funcEmail, funcSenha);
+    public Gerente(String funcRG, String funcNome, Data funcDataNasc, Data funcDataAdmissao, double funcSalario, String funcEmail, String funcSenha, int grntAnosExp) {
+        super(funcRG, funcNome, funcDataNasc, funcDataAdmissao, funcSalario, funcEmail, funcSenha);
         this.grntAnosExp = grntAnosExp;
     }
 
+    public Gerente(String funcRG) {
+        super(funcRG);
+    }
+    
     @Override
     public void cadastrar() {
         try
         {
             File arq = new File(".//src//Model//gerente.txt");
             FileWriter escritor = new FileWriter(arq, true);
-            escritor.write(this.getFuncRG() + ";" + this.getFuncNome()+ ";" + this.getFuncDataNasc() + ";" + this.getFuncDataAdmissao() + ";" + this.getFuncSalario() + ";" + this.getFuncGouV() + ";" + this.getFuncEmail() + ";" + this.getFuncSenha() + ";" + this.getGrntAnosExp() + ";" + "\n");
+            escritor.write(this.getFuncRG() + ";" + this.getFuncNome()+ ";" + this.getFuncDataNasc().getData() + ";" + this.getFuncDataAdmissao().getData() + ";" + this.getFuncSalario() + ";" + this.getFuncGouV() + ";" + this.getFuncEmail() + ";" + this.getFuncSenha() + ";" + this.getGrntAnosExp() + ";" + "\n");
             escritor.close();
             JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
         }

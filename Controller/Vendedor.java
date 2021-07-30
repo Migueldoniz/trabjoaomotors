@@ -28,8 +28,13 @@ public class Vendedor extends Funcionario {
         this.vnddGerenteResp = vnddGerenteResp;
     }
     
-    public Vendedor(String funcRG, String funcNome, Data funcDataNasc, Data funcDataAdmissao, double funcSalario, String funcGouV, String funcEmail, String funcSenha, int vnddTempoTR, String vnddGerenteResp) {
-        super(funcRG, funcNome, funcDataNasc, funcDataAdmissao, funcSalario, funcGouV, funcEmail, funcSenha);
+    public Vendedor(String funcRG)
+    {
+        super(funcRG);
+    }
+    
+    public Vendedor(String funcRG, String funcNome, Data funcDataNasc, Data funcDataAdmissao, double funcSalario, String funcEmail, String funcSenha, int vnddTempoTR, String vnddGerenteResp) {
+        super(funcRG, funcNome, funcDataNasc, funcDataAdmissao, funcSalario, funcEmail, funcSenha);
         this.vnddTempoTR = vnddTempoTR;
         this.vnddGerenteResp = vnddGerenteResp;
     }    
@@ -40,7 +45,7 @@ public class Vendedor extends Funcionario {
         {
             File arq = new File(".//src//Model//vendedores.txt");
             FileWriter escritor = new FileWriter(arq, true);
-            escritor.write(this.getFuncRG() + ";" + this.getFuncNome()+ ";" + this.getFuncDataNasc() + ";" + this.getFuncDataAdmissao() + ";" + this.getFuncSalario() + ";" + this.getFuncGouV() + ";" + this.getFuncEmail() + ";" + this.getFuncSenha() + ";" + this.getVnddTempoTR() + ";" + this.getVnddGerenteResp() + "\n");
+            escritor.write(this.getFuncRG() + ";" + this.getFuncNome()+ ";" + this.getFuncDataNasc().getData() + ";" + this.getFuncDataAdmissao().getData() + ";" + this.getFuncSalario() + ";" + this.getFuncGouV() + ";" + this.getFuncEmail() + ";" + this.getFuncSenha() + ";" + this.getVnddTempoTR() + ";" + this.getVnddGerenteResp() + "\n");
             escritor.close();
             JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
         }

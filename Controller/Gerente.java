@@ -14,7 +14,11 @@ public class Gerente extends Funcionario {
     public void setGrntAnosExp(int grntAnosExp) {
         this.grntAnosExp = grntAnosExp;
     }
-    
+
+    public Gerente(String funcEmail, String funcSenha) {
+        super(funcEmail, funcSenha);
+    }
+
     public Gerente(String funcRG, String funcNome, Data funcDataNasc, Data funcDataAdmissao, double funcSalario, String funcGouV, String funcEmail, String funcSenha, int grntAnosExp) {
         super(funcRG, funcNome, funcDataNasc, funcDataAdmissao, funcSalario, funcGouV, funcEmail, funcSenha);
         this.grntAnosExp = grntAnosExp;
@@ -83,5 +87,31 @@ public class Gerente extends Funcionario {
     public void alterar() {
         this.excluir();
         this.cadastrar();
+    }
+
+    @Override
+    public boolean verificaLogin() {
+        boolean flag = false;
+        try
+        {
+            FileReader arq = new FileReader(".//src//Model//gerente.txt");
+            BufferedReader lerArq = new BufferedReader(arq);
+            while(lerArq.ready() && flag == false)
+            {
+                String linha = lerArq.readLine();
+                String[] dadoSeparado = linha.split(";");
+                if(this.getFuncEmail().equals(dadoSeparado[6]) && this.getFuncSenha().equals(dadoSeparado[7]))
+                    flag = true;
+            }
+            
+            lerArq.close();
+        }
+        
+        catch(IOException e)
+        {
+            JOptionPane.showMessageDialog(null, "Erro ao cosultar arquivo!", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        return flag;
     }
 }

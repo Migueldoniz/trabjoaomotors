@@ -8,6 +8,10 @@ public class Vendedor extends Funcionario {
     private int vnddTempoTR;
     private String vnddGerenteResp;
 
+    public Vendedor(String funcEmail, String funcSenha) {
+        super(funcEmail, funcSenha);
+    }
+
     public int getVnddTempoTR() {
         return vnddTempoTR;
     }
@@ -93,4 +97,31 @@ public class Vendedor extends Funcionario {
         this.excluir();
         this.cadastrar();
     }    
+
+    @Override
+    public boolean verificaLogin() {
+         boolean flag = false;
+         
+         try
+        {
+            FileReader arq = new FileReader(".//src//Model//vendedores.txt");
+            BufferedReader lerArq = new BufferedReader(arq);
+            while(lerArq.ready() && flag == false)
+            {
+                String linha = lerArq.readLine();
+                String[] dadoSeparado = linha.split(";");
+                if(this.getFuncEmail().equals(dadoSeparado[6]) && this.getFuncSenha().equals(dadoSeparado[7]))
+                    flag = true;
+            }
+            
+            lerArq.close();
+        }
+        
+        catch(IOException e)
+        {
+            JOptionPane.showMessageDialog(null, "Erro ao cosultar arquivo!", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        return flag;
+    }
 }

@@ -1,5 +1,8 @@
 package Controller;
 
+import java.io.*;
+import javax.swing.JOptionPane;
+
 public abstract class Funcionario extends Operacoes{
     private String funcRG;
     private String funcNome;
@@ -9,6 +12,11 @@ public abstract class Funcionario extends Operacoes{
     private String funcGouV;
     private String funcEmail;
     private String funcSenha;
+
+    public Funcionario(String funcEmail, String funcSenha) {
+        this.funcEmail = funcEmail;
+        this.funcSenha = funcSenha;
+    }
 
     public String getFuncRG() {
         return funcRG;
@@ -85,6 +93,6 @@ public abstract class Funcionario extends Operacoes{
         this.funcSenha = funcSenha;
     }
             
-    //public void logar() 
-    
+    public abstract boolean verificaLogin();
+
 }

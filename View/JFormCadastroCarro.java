@@ -5,6 +5,12 @@
  */
 package View;
 
+import javax.swing.JOptionPane;
+import Controller.Carro;
+import java.awt.Color;
+import java.awt.Font;
+import java.io.*;
+
 /**
  *
  * @author sarah
@@ -245,9 +251,18 @@ public class JFormCadastroCarro extends javax.swing.JFrame {
         txt_chassi.setForeground(new java.awt.Color(153, 153, 153));
         txt_chassi.setText(" Número do chassi");
         txt_chassi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+        txt_chassi.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txt_chassi.setEnabled(false);
         txt_chassi.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_chassi.setName("txt_chassi"); // NOI18N
+        txt_chassi.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_chassiFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_chassiFocusLost(evt);
+            }
+        });
 
         txt_marca.setForeground(new java.awt.Color(153, 153, 153));
         txt_marca.setText(" Marca");
@@ -255,6 +270,11 @@ public class JFormCadastroCarro extends javax.swing.JFrame {
         txt_marca.setEnabled(false);
         txt_marca.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_marca.setName("txt_marca"); // NOI18N
+        txt_marca.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_marcaFocusGained(evt);
+            }
+        });
 
         txt_modelo.setForeground(new java.awt.Color(153, 153, 153));
         txt_modelo.setText(" Modelo");
@@ -262,6 +282,11 @@ public class JFormCadastroCarro extends javax.swing.JFrame {
         txt_modelo.setEnabled(false);
         txt_modelo.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_modelo.setName("txt_modelo"); // NOI18N
+        txt_modelo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_modeloFocusGained(evt);
+            }
+        });
 
         txt_ano.setForeground(new java.awt.Color(153, 153, 153));
         txt_ano.setText(" Ano");
@@ -269,6 +294,11 @@ public class JFormCadastroCarro extends javax.swing.JFrame {
         txt_ano.setEnabled(false);
         txt_ano.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_ano.setName("txt_ano"); // NOI18N
+        txt_ano.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_anoFocusGained(evt);
+            }
+        });
         txt_ano.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_anoActionPerformed(evt);
@@ -281,6 +311,11 @@ public class JFormCadastroCarro extends javax.swing.JFrame {
         txt_km.setEnabled(false);
         txt_km.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_km.setName("txt_km"); // NOI18N
+        txt_km.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_kmFocusGained(evt);
+            }
+        });
 
         txt_combs.setForeground(new java.awt.Color(153, 153, 153));
         txt_combs.setText(" Tipo de combustível");
@@ -288,6 +323,11 @@ public class JFormCadastroCarro extends javax.swing.JFrame {
         txt_combs.setEnabled(false);
         txt_combs.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_combs.setName("txt_combs"); // NOI18N
+        txt_combs.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_combsFocusGained(evt);
+            }
+        });
 
         txt_peso.setForeground(new java.awt.Color(153, 153, 153));
         txt_peso.setText(" Peso");
@@ -295,6 +335,11 @@ public class JFormCadastroCarro extends javax.swing.JFrame {
         txt_peso.setEnabled(false);
         txt_peso.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_peso.setName("txt_peso"); // NOI18N
+        txt_peso.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_pesoFocusGained(evt);
+            }
+        });
         txt_peso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_pesoActionPerformed(evt);
@@ -307,6 +352,11 @@ public class JFormCadastroCarro extends javax.swing.JFrame {
         txt_potencia.setEnabled(false);
         txt_potencia.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_potencia.setName("txt_pot"); // NOI18N
+        txt_potencia.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_potenciaFocusGained(evt);
+            }
+        });
         txt_potencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_potenciaActionPerformed(evt);
@@ -320,6 +370,11 @@ public class JFormCadastroCarro extends javax.swing.JFrame {
         txt_cilindros.setEnabled(false);
         txt_cilindros.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_cilindros.setName("txt_cilindros"); // NOI18N
+        txt_cilindros.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_cilindrosFocusGained(evt);
+            }
+        });
         txt_cilindros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_cilindrosActionPerformed(evt);
@@ -333,6 +388,11 @@ public class JFormCadastroCarro extends javax.swing.JFrame {
         txt_ocupantes.setEnabled(false);
         txt_ocupantes.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_ocupantes.setName("txt_ocupantes"); // NOI18N
+        txt_ocupantes.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_ocupantesFocusGained(evt);
+            }
+        });
         txt_ocupantes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_ocupantesActionPerformed(evt);
@@ -344,7 +404,7 @@ public class JFormCadastroCarro extends javax.swing.JFrame {
         jLabel2.setText("Tipo");
 
         cmb_tipo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        cmb_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "utilitário", "pickup", "sedan", "hatch", "esportivo" }));
+        cmb_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Utilitário", "Pickup", "Sedan", "Hatch", "Esportivo" }));
         cmb_tipo.setToolTipText("");
         cmb_tipo.setEnabled(false);
 
@@ -358,6 +418,11 @@ public class JFormCadastroCarro extends javax.swing.JFrame {
         txt_altura.setEnabled(false);
         txt_altura.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_altura.setName("txt_altura"); // NOI18N
+        txt_altura.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_alturaFocusGained(evt);
+            }
+        });
         txt_altura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_alturaActionPerformed(evt);
@@ -370,6 +435,11 @@ public class JFormCadastroCarro extends javax.swing.JFrame {
         txt_largura.setEnabled(false);
         txt_largura.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_largura.setName("txt_largura"); // NOI18N
+        txt_largura.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_larguraFocusGained(evt);
+            }
+        });
         txt_largura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_larguraActionPerformed(evt);
@@ -382,6 +452,11 @@ public class JFormCadastroCarro extends javax.swing.JFrame {
         txt_comp.setEnabled(false);
         txt_comp.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_comp.setName("txt_comprimento"); // NOI18N
+        txt_comp.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_compFocusGained(evt);
+            }
+        });
         txt_comp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_compActionPerformed(evt);
@@ -396,7 +471,7 @@ public class JFormCadastroCarro extends javax.swing.JFrame {
 
         txt_status.setEditable(false);
         txt_status.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txt_status.setText(" A venda");
+        txt_status.setText("A venda");
         txt_status.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
         txt_status.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_status.setName("txt_combs"); // NOI18N
@@ -452,6 +527,11 @@ public class JFormCadastroCarro extends javax.swing.JFrame {
         btn_salvar.setText("Confirmar");
         btn_salvar.setEnabled(false);
         btn_salvar.setName("btn_salvar"); // NOI18N
+        btn_salvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salvarActionPerformed(evt);
+            }
+        });
 
         txt_busca.setForeground(new java.awt.Color(153, 153, 153));
         txt_busca.setText(" Buscar pelo número do chassi");
@@ -459,6 +539,11 @@ public class JFormCadastroCarro extends javax.swing.JFrame {
         txt_busca.setEnabled(false);
         txt_busca.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_busca.setName("txt_busca"); // NOI18N
+        txt_busca.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_buscaFocusGained(evt);
+            }
+        });
 
         btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pesquisa-de-lupa.png"))); // NOI18N
         btn_buscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
@@ -633,6 +718,7 @@ public class JFormCadastroCarro extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_anoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_anoActionPerformed
@@ -696,6 +782,7 @@ public class JFormCadastroCarro extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton3ActionPerformed
 
     private void btn_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrarActionPerformed
+        txt_status.setText("A venda");
         txt_chassi.setEnabled(true);
         txt_marca.setEnabled(true);
         txt_modelo.setEnabled(true);
@@ -716,20 +803,21 @@ public class JFormCadastroCarro extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_cadastrarActionPerformed
 
     private void btn_alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterarActionPerformed
+        txt_busca.setText("");
         txt_busca.setEnabled(true);
         btn_buscar.setEnabled(true);
         btn_cadastrar.setEnabled(false);
         btn_excluir.setEnabled(false);
-        btn_salvar.setEnabled(true);
+        btn_salvar.setEnabled(false);
     }//GEN-LAST:event_btn_alterarActionPerformed
 
     private void btn_excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirActionPerformed
+        txt_busca.setText("");
         txt_busca.setEnabled(true);
         btn_buscar.setEnabled(true);
         btn_cadastrar.setEnabled(false);
         btn_alterar.setEnabled(false);
-        btn_salvar.setEnabled(true);
-
+        btn_salvar.setEnabled(false);
     }//GEN-LAST:event_btn_excluirActionPerformed
 
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
@@ -737,7 +825,9 @@ public class JFormCadastroCarro extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_cancelarActionPerformed
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
-        //Verificar se achou o número, se achou fazer tudo aqui embaixo
+        String chassi;
+        boolean flag = false;
+        
         txt_chassi.setText("");
         txt_marca.setText("");
         txt_modelo.setText("");
@@ -753,14 +843,59 @@ public class JFormCadastroCarro extends javax.swing.JFrame {
         txt_largura.setText("");
         txt_status.setText("");
 
+        btn_salvar.setEnabled(true);
         txt_busca.setEnabled(false);
         btn_buscar.setEnabled(false);
+        
+        chassi = txt_busca.getText();
+        if(chassi.isEmpty())
+            JOptionPane.showMessageDialog(null, "Insira o número do chassi!", "Erro", JOptionPane.ERROR_MESSAGE);
+        else
+        {
+            try
+            {
+                FileReader arq = new FileReader(".//src//Model//carros.txt");
+                BufferedReader lerArq = new BufferedReader(arq);
+                while(lerArq.ready() && flag == false)
+                {
+                    String linha = lerArq.readLine();
+                    String[] dadoSeparado = linha.split(";");
+                    if(dadoSeparado[0].equals(chassi))
+                    {
+                        flag = true;
+                        
+                        txt_chassi.setText(chassi);
+                        txt_marca.setText(dadoSeparado[1]);
+                        txt_modelo.setText(dadoSeparado[2]);
+                        txt_ano.setText(dadoSeparado[3]);
+                        txt_km.setText(dadoSeparado[4]);
+                        txt_combs.setText(dadoSeparado[5]);
+                        txt_peso.setText(dadoSeparado[6]);
+                        txt_status.setText(dadoSeparado[7]);
+                        txt_potencia.setText(dadoSeparado[8]);
+                        txt_cilindros.setText(dadoSeparado[9]);
+                        txt_ocupantes.setText(dadoSeparado[10]);
+                        cmb_tipo.setSelectedItem(dadoSeparado[11]);
+                        txt_altura.setText(dadoSeparado[12]);
+                        txt_largura.setText(dadoSeparado[13]);
+                        txt_comp.setText(dadoSeparado[14]);
+                    }
+                }
 
-        //Carregar os dados aqui
+                lerArq.close();
+                if(flag == false)
+                     JOptionPane.showMessageDialog(null, "Número do chassi não encontrado!", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
 
+            catch(IOException e)
+            {
+                JOptionPane.showMessageDialog(null, "Erro ao buscar dados no arquivo!", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        
         if(this.btn_alterar.isEnabled())
         {
-            txt_chassi.setEnabled(true);
+            txt_chassi.setEnabled(false);
             txt_marca.setEnabled(true);
             txt_modelo.setEnabled(true);
             txt_ano.setEnabled(true);
@@ -778,9 +913,257 @@ public class JFormCadastroCarro extends javax.swing.JFrame {
 
         else if(this.btn_excluir.isEnabled())
         {
-            //Chamar o método delete
+            txt_chassi.setEnabled(false);
+            txt_marca.setEnabled(false);
+            txt_modelo.setEnabled(false);
+            txt_ano.setEnabled(false);
+            txt_km.setEnabled(false);
+            txt_combs.setEnabled(false);
+            txt_peso.setEnabled(false);
+            txt_potencia.setEnabled(false);
+            txt_cilindros.setEnabled(false);
+            txt_ocupantes.setEnabled(false);
+            txt_altura.setEnabled(false);
+            txt_comp.setEnabled(false);
+            txt_largura.setEnabled(false);
+            cmb_tipo.setEnabled(false);
         }
     }//GEN-LAST:event_btn_buscarActionPerformed
+
+    private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
+       
+        if((this.btn_alterar.isEnabled() == false && this.btn_excluir.isEnabled() == false) || (btn_cadastrar.isEnabled() == false && btn_excluir.isEnabled() == false)) 
+        {
+           String chassi, marca, modelo, tipo, status, tipoCombustivel;
+           int ano, numCilindros, numOcupantes, potencia;
+           double km, peso, altura, comprimento, largura;
+           
+           //Pega os dados
+           chassi = txt_chassi.getText();
+           marca = txt_marca.getText();
+           modelo = txt_modelo.getText();
+           tipo = cmb_tipo.getSelectedItem().toString();
+           status = txt_status.getText();
+           tipoCombustivel = txt_combs.getText();
+           ano = Integer.parseInt(txt_ano.getText());
+           numCilindros = Integer.parseInt(txt_cilindros.getText());
+           numOcupantes = Integer.parseInt(txt_ocupantes.getText());
+           potencia = Integer.parseInt(txt_potencia.getText());
+           km = Double.parseDouble(txt_km.getText());
+           peso = Double.parseDouble(txt_peso.getText());
+           altura = Double.parseDouble(txt_altura.getText());
+           comprimento = Double.parseDouble(txt_comp.getText());
+           largura = Double.parseDouble(txt_largura.getText());
+           
+           //Confere
+           if(chassi.isEmpty() || chassi.equals("Número do Chassi"))
+               JOptionPane.showMessageDialog(null, "Campo chassi não preenchido!", "Erro", JOptionPane.ERROR_MESSAGE);
+           else if(marca.isEmpty() || marca.equals("Marca"))
+               JOptionPane.showMessageDialog(null, "Campo marca não preenchido!", "Erro", JOptionPane.ERROR_MESSAGE);
+           else if(modelo.isEmpty() || modelo.equals("Modelo"))
+               JOptionPane.showMessageDialog(null, "Campo modelo não preenchido!", "Erro", JOptionPane.ERROR_MESSAGE);
+           else if(tipoCombustivel.isEmpty() || tipoCombustivel.equals("Tipo de combustível"))
+               JOptionPane.showMessageDialog(null, "Campo combustível não preenchido!", "Erro", JOptionPane.ERROR_MESSAGE);
+           else if(ano < 1950 || ano > 2050)
+               JOptionPane.showMessageDialog(null, "Ano inválido!", "Erro", JOptionPane.ERROR_MESSAGE);
+           else if(numCilindros < 1 || numCilindros > 10)
+               JOptionPane.showMessageDialog(null, "Número de cilindros inválido!", "Erro", JOptionPane.ERROR_MESSAGE);
+           else if(numOcupantes < 1 || numOcupantes > 10)
+               JOptionPane.showMessageDialog(null, "Número de ocupantes inválido!", "Erro", JOptionPane.ERROR_MESSAGE);
+           else if(potencia < 0)
+               JOptionPane.showMessageDialog(null, "Potência inválida!", "Erro", JOptionPane.ERROR_MESSAGE);
+           else if(km < 0)
+               JOptionPane.showMessageDialog(null, "Km inválido!", "Erro", JOptionPane.ERROR_MESSAGE);
+           else if(peso < 0 || peso > 10000)
+               JOptionPane.showMessageDialog(null, "Peso inválido!", "Erro", JOptionPane.ERROR_MESSAGE);
+           else if(altura < 1)
+               JOptionPane.showMessageDialog(null, "Altura inválida!", "Erro", JOptionPane.ERROR_MESSAGE);
+           else if(comprimento < 1)
+               JOptionPane.showMessageDialog(null, "Comprimento inválido!", "Erro", JOptionPane.ERROR_MESSAGE);
+           else if(largura < 1)
+               JOptionPane.showMessageDialog(null, "Largura inválida!", "Erro", JOptionPane.ERROR_MESSAGE);
+           else
+           {
+               //Cria objeto 
+               Carro carro = new Carro(potencia, numCilindros, numOcupantes, tipo, altura, largura, comprimento, chassi, marca, modelo, ano, km, tipoCombustivel, peso, status);
+               if(this.btn_alterar.isEnabled() == false && this.btn_excluir.isEnabled() == false)
+               {
+                   carro.cadastrar();
+                   JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
+                   
+               }
+               
+               else //Alterar
+               {
+                  carro.alterar();
+                  JOptionPane.showMessageDialog(null, "Veículo alterado com sucesso!", "Alteração", JOptionPane.INFORMATION_MESSAGE);
+                  
+               }
+           }
+       }
+       
+       else if(btn_cadastrar.isEnabled() == false && btn_alterar.isEnabled() == false) //Excluir
+       {
+           Carro carro = new Carro(txt_chassi.getText());
+           carro.excluir();
+           JOptionPane.showMessageDialog(null, "Veículo excluído com sucesso!", "Exclusão", JOptionPane.INFORMATION_MESSAGE);
+           
+       }
+        
+        btn_alterar.setEnabled(true);
+        btn_excluir.setEnabled(true);
+        btn_cadastrar.setEnabled(true);
+        btn_salvar.setEnabled(false);
+     
+       //Limpa os campos
+       Font fonte = new Font("Tahoma", Font.PLAIN, 11);
+       
+       txt_chassi.setFont(fonte);
+       txt_chassi.setForeground(Color.LIGHT_GRAY);
+       txt_marca.setFont(fonte);
+       txt_marca.setForeground(Color.LIGHT_GRAY);
+       txt_modelo.setFont(fonte);
+       txt_modelo.setForeground(Color.LIGHT_GRAY);
+       txt_ano.setFont(fonte);
+       txt_ano.setForeground(Color.LIGHT_GRAY);
+       txt_km.setFont(fonte);
+       txt_km.setForeground(Color.LIGHT_GRAY);
+       txt_combs.setFont(fonte);
+       txt_combs.setForeground(Color.LIGHT_GRAY);
+       txt_peso.setFont(fonte);
+       txt_peso.setForeground(Color.LIGHT_GRAY);
+       txt_potencia.setFont(fonte);
+       txt_potencia.setForeground(Color.LIGHT_GRAY);
+       txt_cilindros.setFont(fonte);
+       txt_cilindros.setForeground(Color.LIGHT_GRAY);
+       txt_ocupantes.setFont(fonte);
+       txt_ocupantes.setForeground(Color.LIGHT_GRAY);
+       txt_altura.setFont(fonte);
+       txt_altura.setForeground(Color.LIGHT_GRAY);
+       txt_comp.setFont(fonte);
+       txt_comp.setForeground(Color.LIGHT_GRAY);
+       txt_largura.setFont(fonte);
+       txt_largura.setForeground(Color.LIGHT_GRAY);
+       txt_busca.setFont(fonte);
+       txt_busca.setForeground(Color.LIGHT_GRAY);
+       
+       txt_chassi.setText("Número do Chassi");
+       txt_marca.setText("Marca");
+       txt_modelo.setText("Modelo");
+       txt_ano.setText("Ano");
+       txt_km.setText("Km");
+       txt_combs.setText("Tipo de combustível");
+       txt_peso.setText("Peso");
+       txt_potencia.setText("Potência");
+       txt_cilindros.setText("Cilindros");
+       txt_ocupantes.setText("Ocupantes");
+       txt_altura.setText("Altura");
+       txt_comp.setText("Comprimento");
+       txt_largura.setText("Largura");
+       txt_busca.setText("Buscar pelo número do chassi");
+    }//GEN-LAST:event_btn_salvarActionPerformed
+
+    private void txt_chassiFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_chassiFocusGained
+        txt_chassi.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_chassi.setFont(fonte);
+        txt_chassi.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_chassiFocusGained
+
+    private void txt_buscaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_buscaFocusGained
+        txt_busca.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_busca.setFont(fonte);
+        txt_busca.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_buscaFocusGained
+
+    private void txt_marcaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_marcaFocusGained
+        txt_marca.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_marca.setFont(fonte);
+        txt_marca.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_marcaFocusGained
+
+    private void txt_modeloFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_modeloFocusGained
+        txt_modelo.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_modelo.setFont(fonte);
+        txt_modelo.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_modeloFocusGained
+
+    private void txt_anoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_anoFocusGained
+        txt_ano.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_ano.setFont(fonte);
+        txt_ano.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_anoFocusGained
+
+    private void txt_kmFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_kmFocusGained
+        txt_km.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_km.setFont(fonte);
+        txt_km.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_kmFocusGained
+
+    private void txt_combsFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_combsFocusGained
+        txt_combs.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_combs.setFont(fonte);
+        txt_combs.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_combsFocusGained
+
+    private void txt_pesoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_pesoFocusGained
+        txt_peso.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_peso.setFont(fonte);
+        txt_peso.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_pesoFocusGained
+
+    private void txt_potenciaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_potenciaFocusGained
+        txt_potencia.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_potencia.setFont(fonte);
+        txt_potencia.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_potenciaFocusGained
+
+    private void txt_cilindrosFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_cilindrosFocusGained
+        txt_cilindros.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_cilindros.setFont(fonte);
+        txt_cilindros.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_cilindrosFocusGained
+
+    private void txt_ocupantesFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_ocupantesFocusGained
+        txt_ocupantes.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_ocupantes.setFont(fonte);
+        txt_ocupantes.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_ocupantesFocusGained
+
+    private void txt_alturaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_alturaFocusGained
+        txt_altura.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_altura.setFont(fonte);
+        txt_altura.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_alturaFocusGained
+
+    private void txt_compFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_compFocusGained
+        txt_comp.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_comp.setFont(fonte);
+        txt_comp.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_compFocusGained
+
+    private void txt_larguraFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_larguraFocusGained
+        txt_largura.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_largura.setFont(fonte);
+        txt_largura.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_larguraFocusGained
+
+    private void txt_chassiFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_chassiFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_chassiFocusLost
 
     /**
      * @param args the command line arguments

@@ -3,17 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package View;
-
-import concessionaria.Data;
 
 /**
  *
  * @author sarah
  */
 public class JFormCadastroCliente extends javax.swing.JFrame {
-       concessionaria.Data Data = new concessionaria.Data();
+
     /**
      * Creates new form JFormCadastroCliente
      */
@@ -79,11 +76,6 @@ public class JFormCadastroCliente extends javax.swing.JFrame {
         txt_nome.setEnabled(false);
         txt_nome.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_nome.setName("txt_nome"); // NOI18N
-        txt_nome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_nomeActionPerformed(evt);
-            }
-        });
 
         txt_cpf.setForeground(new java.awt.Color(153, 153, 153));
         txt_cpf.setText(" CPF");
@@ -361,13 +353,11 @@ public class JFormCadastroCliente extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_nascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nascActionPerformed
-        String data;
-        data=txt_nasc.getText();
-        Data.setData(data);
-        
+        // TODO add your handling code here:
     }//GEN-LAST:event_txt_nascActionPerformed
 
     private void txt_rendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_rendaActionPerformed
@@ -461,10 +451,6 @@ public class JFormCadastroCliente extends javax.swing.JFrame {
             //Chamar o método delete
         }
     }//GEN-LAST:event_btn_buscar1ActionPerformed
-
-    private void txt_nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomeActionPerformed
-       txt_nome.setText("");
-    }//GEN-LAST:event_txt_nomeActionPerformed
 
     /**
      * @param args the command line arguments

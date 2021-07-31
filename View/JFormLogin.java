@@ -5,11 +5,11 @@
  */
 package View;
 
-import Controller.Gerente;
-import Controller.Vendedor;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JOptionPane;
+import Controller.Gerente;
+import Controller.Vendedor;
 
 /**
  *
@@ -43,13 +43,13 @@ public class JFormLogin extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        txt_email = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         btn_logar = new javax.swing.JButton();
         txt_senha = new javax.swing.JPasswordField();
         cmb_tipo = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
+        txt_email = new javax.swing.JTextField();
 
         jLabel1.setText("LOGIN");
 
@@ -106,21 +106,6 @@ public class JFormLogin extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 102, 102));
         jLabel2.setText("LOGIN");
 
-        txt_email.setForeground(new java.awt.Color(153, 153, 153));
-        txt_email.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt_email.setText("nome@email.com");
-        txt_email.setName("txt_email"); // NOI18N
-        txt_email.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txt_emailFocusGained(evt);
-            }
-        });
-        txt_email.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_emailActionPerformed(evt);
-            }
-        });
-
         jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 102, 102));
         jLabel3.setText("Email");
@@ -139,6 +124,7 @@ public class JFormLogin extends javax.swing.JFrame {
             }
         });
 
+        txt_senha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
         txt_senha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_senhaActionPerformed(evt);
@@ -150,23 +136,33 @@ public class JFormLogin extends javax.swing.JFrame {
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/concessionaria128.png"))); // NOI18N
 
+        txt_email.setForeground(new java.awt.Color(153, 153, 153));
+        txt_email.setText("  nome@gmail.com");
+        txt_email.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+        txt_email.setMaximumSize(new java.awt.Dimension(17, 17));
+        txt_email.setName("txt_email"); // NOI18N
+        txt_email.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_emailFocusGained(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel7)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3)
-                                .addComponent(cmb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txt_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_logar, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(cmb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addComponent(btn_logar, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_email, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -187,8 +183,8 @@ public class JFormLogin extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
+                        .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -232,10 +228,6 @@ public class JFormLogin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_emailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_emailActionPerformed
-
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
@@ -245,7 +237,7 @@ public class JFormLogin extends javax.swing.JFrame {
         tipo = cmb_tipo.getSelectedItem().toString();
         email = txt_email.getText();
         senha = txt_senha.getText();
-        if(!email.contains("@") || email.isEmpty())
+        if((!email.contains("@")) || email.isEmpty())
             JOptionPane.showMessageDialog(null, "Insira um email válido!", "Erro", JOptionPane.ERROR_MESSAGE);
             
         else if(senha.isEmpty())
@@ -258,27 +250,37 @@ public class JFormLogin extends javax.swing.JFrame {
             {
                 Vendedor vendedor = new Vendedor(email, senha);
                 retorno = vendedor.verificaLogin();
+                if(retorno == false)
+                    JOptionPane.showMessageDialog(null, "Email e/ou senha incorreto(s)", "Erro", JOptionPane.ERROR_MESSAGE);
+                else
+                {
+                    JFormInicioV obj_inicio = new JFormInicioV();
+                    obj_inicio.setVisible(true);
+                }
+                
             }
             
             else
             {
                 Gerente gerente = new Gerente(email, senha);
                 retorno = gerente.verificaLogin();
-            }
-            
-            if(retorno == false)
-                JOptionPane.showMessageDialog(null, "Email e/ou senha incorreto(s)", "Erro", JOptionPane.ERROR_MESSAGE);
-            
-            else
-            {
-                JFormInicio obj_inicio = new JFormInicio();
-                obj_inicio.setVisible(true);
+                if(retorno == false)
+                    JOptionPane.showMessageDialog(null, "Email e/ou senha incorreto(s)", "Erro", JOptionPane.ERROR_MESSAGE);
+                
+                else
+                {
+                    JFormInicio obj_inicio = new JFormInicio();
+                    obj_inicio.setVisible(true);
+                }
             }
             
         }
 
+    
     }//GEN-LAST:event_btn_logarActionPerformed
 
+    
+    
     private void txt_senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_senhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_senhaActionPerformed

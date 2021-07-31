@@ -5,6 +5,13 @@
  */
 package View;
 
+import Controller.Data;
+import javax.swing.JOptionPane;
+import Controller.Vendedor;
+import java.awt.Color;
+import java.awt.Font;
+import java.io.*;
+
 /**
  *
  * @author sarah
@@ -50,7 +57,6 @@ public class JFormCadastroVendedor extends javax.swing.JFrame {
         txt_sal = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txt_tempo = new javax.swing.JTextField();
-        cmb_gerente = new javax.swing.JComboBox<>();
         btn_cadastrar = new javax.swing.JButton();
         btn_alterar = new javax.swing.JButton();
         btn_excluir = new javax.swing.JButton();
@@ -60,6 +66,8 @@ public class JFormCadastroVendedor extends javax.swing.JFrame {
         btn_buscar1 = new javax.swing.JButton();
         txt_email = new javax.swing.JTextField();
         txt_senha = new javax.swing.JTextField();
+        txt_gerente = new javax.swing.JTextField();
+        btn_buscar2 = new javax.swing.JButton();
 
         jLabel3.setBackground(new java.awt.Color(0, 102, 102));
         jLabel3.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -230,6 +238,11 @@ public class JFormCadastroVendedor extends javax.swing.JFrame {
         txt_nome.setEnabled(false);
         txt_nome.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_nome.setName("txt_nome"); // NOI18N
+        txt_nome.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_nomeFocusGained(evt);
+            }
+        });
 
         txt_rg.setForeground(new java.awt.Color(153, 153, 153));
         txt_rg.setText(" RG");
@@ -237,6 +250,11 @@ public class JFormCadastroVendedor extends javax.swing.JFrame {
         txt_rg.setEnabled(false);
         txt_rg.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_rg.setName("txt_rg"); // NOI18N
+        txt_rg.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_rgFocusGained(evt);
+            }
+        });
 
         txt_nasc.setForeground(new java.awt.Color(153, 153, 153));
         txt_nasc.setText(" Data de nascimento: __/__/____");
@@ -244,6 +262,11 @@ public class JFormCadastroVendedor extends javax.swing.JFrame {
         txt_nasc.setEnabled(false);
         txt_nasc.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_nasc.setName("txt_nasc"); // NOI18N
+        txt_nasc.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_nascFocusGained(evt);
+            }
+        });
         txt_nasc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_nascActionPerformed(evt);
@@ -256,6 +279,11 @@ public class JFormCadastroVendedor extends javax.swing.JFrame {
         txt_adm.setEnabled(false);
         txt_adm.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_adm.setName("txt_admi"); // NOI18N
+        txt_adm.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_admFocusGained(evt);
+            }
+        });
 
         txt_sal.setForeground(new java.awt.Color(153, 153, 153));
         txt_sal.setText(" Salário");
@@ -263,6 +291,11 @@ public class JFormCadastroVendedor extends javax.swing.JFrame {
         txt_sal.setEnabled(false);
         txt_sal.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_sal.setName("txt_sal"); // NOI18N
+        txt_sal.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_salFocusGained(evt);
+            }
+        });
         txt_sal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_salActionPerformed(evt);
@@ -277,15 +310,16 @@ public class JFormCadastroVendedor extends javax.swing.JFrame {
         txt_tempo.setEnabled(false);
         txt_tempo.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_tempo.setName("txt_tempo"); // NOI18N
+        txt_tempo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_tempoFocusGained(evt);
+            }
+        });
         txt_tempo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_tempoActionPerformed(evt);
             }
         });
-
-        cmb_gerente.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        cmb_gerente.setEnabled(false);
-        cmb_gerente.setName("slc_gerente"); // NOI18N
 
         btn_cadastrar.setBackground(new java.awt.Color(0, 102, 102));
         btn_cadastrar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -326,6 +360,11 @@ public class JFormCadastroVendedor extends javax.swing.JFrame {
         btn_salvar.setText("Confirmar");
         btn_salvar.setEnabled(false);
         btn_salvar.setName("btn_salvar"); // NOI18N
+        btn_salvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salvarActionPerformed(evt);
+            }
+        });
 
         btn_cancelar.setBackground(new java.awt.Color(255, 255, 255));
         btn_cancelar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -345,6 +384,11 @@ public class JFormCadastroVendedor extends javax.swing.JFrame {
         txt_busca.setEnabled(false);
         txt_busca.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_busca.setName("txt_busca"); // NOI18N
+        txt_busca.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_buscaFocusGained(evt);
+            }
+        });
 
         btn_buscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pesquisa-de-lupa.png"))); // NOI18N
         btn_buscar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
@@ -361,6 +405,11 @@ public class JFormCadastroVendedor extends javax.swing.JFrame {
         txt_email.setEnabled(false);
         txt_email.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_email.setName("txt_nome"); // NOI18N
+        txt_email.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_emailFocusGained(evt);
+            }
+        });
 
         txt_senha.setForeground(new java.awt.Color(153, 153, 153));
         txt_senha.setText(" Senha");
@@ -368,6 +417,37 @@ public class JFormCadastroVendedor extends javax.swing.JFrame {
         txt_senha.setEnabled(false);
         txt_senha.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_senha.setName("txt_cpf"); // NOI18N
+        txt_senha.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_senhaFocusGained(evt);
+            }
+        });
+
+        txt_gerente.setForeground(new java.awt.Color(153, 153, 153));
+        txt_gerente.setText(" Buscar pelo RG do gerente");
+        txt_gerente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+        txt_gerente.setEnabled(false);
+        txt_gerente.setMaximumSize(new java.awt.Dimension(17, 17));
+        txt_gerente.setName("txt_busca"); // NOI18N
+        txt_gerente.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_gerenteFocusGained(evt);
+            }
+        });
+        txt_gerente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_gerenteActionPerformed(evt);
+            }
+        });
+
+        btn_buscar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pesquisa-de-lupa.png"))); // NOI18N
+        btn_buscar2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+        btn_buscar2.setEnabled(false);
+        btn_buscar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscar2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -395,18 +475,21 @@ public class JFormCadastroVendedor extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txt_adm, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_nasc, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txt_nasc, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(4, 4, 4))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(33, 33, 33)
                                 .addComponent(txt_sal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                                         .addComponent(txt_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cmb_gerente, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txt_gerente, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btn_buscar2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                                         .addComponent(btn_cadastrar)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -417,7 +500,7 @@ public class JFormCadastroVendedor extends javax.swing.JFrame {
                                         .addComponent(btn_salvar)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btn_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 19, Short.MAX_VALUE))))
+                        .addGap(15, 15, 15))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -447,9 +530,11 @@ public class JFormCadastroVendedor extends javax.swing.JFrame {
                     .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_sal, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txt_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmb_gerente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txt_gerente, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_buscar2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_cadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -489,6 +574,7 @@ public class JFormCadastroVendedor extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
@@ -526,7 +612,8 @@ public class JFormCadastroVendedor extends javax.swing.JFrame {
         txt_nasc.setEnabled(true);
         txt_adm.setEnabled(true);
         txt_sal.setEnabled(true);
-        cmb_gerente.setEnabled(true);
+        txt_gerente.setEnabled(true);
+        btn_buscar2.setEnabled(true);
         txt_email.setEnabled(true);
         txt_senha.setEnabled(true);
         
@@ -536,16 +623,18 @@ public class JFormCadastroVendedor extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_cadastrarActionPerformed
 
     private void btn_alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterarActionPerformed
+        txt_busca.setText("");
         txt_busca.setEnabled(true);
-        btn_buscar.setEnabled(true);
+        btn_buscar1.setEnabled(true);
         btn_cadastrar.setEnabled(false);
         btn_excluir.setEnabled(false);
         btn_salvar.setEnabled(true);
     }//GEN-LAST:event_btn_alterarActionPerformed
 
     private void btn_excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirActionPerformed
+        txt_busca.setText("");
         txt_busca.setEnabled(true);
-        btn_buscar.setEnabled(true);
+        btn_buscar1.setEnabled(true);
         btn_cadastrar.setEnabled(false);
         btn_alterar.setEnabled(false);
         btn_salvar.setEnabled(true);
@@ -562,6 +651,9 @@ public class JFormCadastroVendedor extends javax.swing.JFrame {
 
     private void btn_buscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar1ActionPerformed
         //Verificar se achou o número, se achou fazer tudo aqui embaixo
+        String rgV;
+        boolean flag = false;
+        
         txt_nome.setText("");
         txt_rg.setText("");
         txt_tempo.setText("");
@@ -570,11 +662,57 @@ public class JFormCadastroVendedor extends javax.swing.JFrame {
         txt_sal.setText("");
         txt_email.setText("");
         txt_senha.setText("");
+        txt_gerente.setText("");
         
+        btn_buscar2.setEnabled(false);
+        btn_salvar.setEnabled(true);
         txt_busca.setEnabled(false);
-        btn_buscar.setEnabled(false);
+        btn_buscar2.setEnabled(false);
 
-        //Carregar os dados aqui
+        rgV = txt_busca.getText();
+        if(rgV.isEmpty() || rgV.equals("Buscar pelo número do RG"))
+        {
+            JOptionPane.showMessageDialog(null, "Insira o número do rg!", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        else
+        {
+            try
+            {
+                FileReader arq = new FileReader(".//src//Model//vendedores.txt");
+                BufferedReader lerArq = new BufferedReader(arq);
+                while(lerArq.ready() && flag == false)
+                {
+                    String linha = lerArq.readLine();
+                    String[] dadoSeparado = linha.split(";");
+                    if(dadoSeparado[0].equals(rgV))
+                    {
+                        flag = true;
+                        
+                        txt_rg.setText(rgV);
+                        txt_nome.setText(dadoSeparado[1]);
+                        txt_tempo.setText(dadoSeparado[7]);
+                        txt_email.setText(dadoSeparado[5]);
+                        txt_senha.setText(dadoSeparado[6]);
+                        txt_nasc.setText(dadoSeparado[2]);
+                        txt_adm.setText(dadoSeparado[3]);
+                        txt_sal.setText(dadoSeparado[4]);
+                        txt_gerente.setText(dadoSeparado[8]);
+                    }
+                }
+
+                lerArq.close();
+                if(flag == false)
+                     JOptionPane.showMessageDialog(null, "RG não encontrado!", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+
+            catch(IOException e)
+            {
+                JOptionPane.showMessageDialog(null, "Erro ao buscar dados no arquivo!", "Erro", JOptionPane.ERROR_MESSAGE);
+                
+            }
+
+        }
 
         if(this.btn_alterar.isEnabled())
         {
@@ -584,16 +722,282 @@ public class JFormCadastroVendedor extends javax.swing.JFrame {
             txt_nasc.setEnabled(true);
             txt_adm.setEnabled(true);
             txt_sal.setEnabled(true);
-            cmb_gerente.setEnabled(true);
+            txt_gerente.setEnabled(true);
+            btn_buscar2.setEnabled(true);
             txt_email.setEnabled(true);
             txt_senha.setEnabled(true);
         }
 
         else if(this.btn_excluir.isEnabled())
         {
-            //Chamar o método delete
+            txt_nome.setEnabled(false);
+            txt_rg.setEnabled(false);
+            txt_tempo.setEnabled(false);
+            txt_nasc.setEnabled(false);
+            txt_adm.setEnabled(false);
+            txt_sal.setEnabled(false);
+            txt_gerente.setEnabled(false);
+            btn_buscar2.setEnabled(false);
+            txt_email.setEnabled(false);
+            txt_senha.setEnabled(false);
         }
     }//GEN-LAST:event_btn_buscar1ActionPerformed
+
+    private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
+      if((this.btn_alterar.isEnabled() == false && this.btn_excluir.isEnabled() == false) || (btn_cadastrar.isEnabled() == false && btn_excluir.isEnabled() == false))
+        {
+           String rg, nome, email, senha,data_nasc, data_adm, gerente;
+           int tempo;
+           double salario;
+            
+           //Pega os dados
+           rg = txt_rg.getText();
+           nome = txt_nome.getText();
+           email = txt_email.getText();
+           gerente = txt_gerente.getText();
+           senha = txt_senha.getText();
+           data_nasc = txt_nasc.getText();
+           data_adm = txt_adm.getText();
+           tempo = Integer.parseInt(txt_tempo.getText());
+           salario = Double.parseDouble(txt_sal.getText());
+           
+           //Confere
+           if(rg.isEmpty() || rg.equals("RG"))
+                  JOptionPane.showMessageDialog(null, "Campo RG não preenchido!", "Erro", JOptionPane.ERROR_MESSAGE);
+            
+            else if(nome.isEmpty() || nome.equals("Nome"))
+                  JOptionPane.showMessageDialog(null, "Campo nome não preenchido!", "Erro", JOptionPane.ERROR_MESSAGE);
+            
+            else if(gerente.isEmpty() || gerente.equals("Nome"))
+                  JOptionPane.showMessageDialog(null, "Campo gerente não preenchido!", "Erro", JOptionPane.ERROR_MESSAGE);
+            
+            
+            else if(email.isEmpty() || email.equals("Email") || email.contains("@") == false)
+                JOptionPane.showMessageDialog(null, "Campo email não preenchido ou inválido!", "Erro", JOptionPane.ERROR_MESSAGE);
+            
+            else if(senha.isEmpty() || senha.equals("Senha"))
+                JOptionPane.showMessageDialog(null, "Campo senha não preenchido!", "Erro", JOptionPane.ERROR_MESSAGE);
+            
+            else if(salario < 0)
+                JOptionPane.showMessageDialog(null, "Salário inválido!", "Erro", JOptionPane.ERROR_MESSAGE);
+            
+            else if(tempo < 0)
+                JOptionPane.showMessageDialog(null, "empo de treinamento. inválido!", "Erro", JOptionPane.ERROR_MESSAGE);
+            
+            else if(data_nasc.isEmpty() || data_nasc.equals("Data de nascimento: __/__/____"))
+                JOptionPane.showMessageDialog(null, "Campo data de nascimento não preenchido!", "Erro", JOptionPane.ERROR_MESSAGE);
+            
+            else if(data_adm.isEmpty() || data_adm.equals("Data de admissão: __/__/____"))
+                JOptionPane.showMessageDialog(null, "Campo data de admissão não preenchido!", "Erro", JOptionPane.ERROR_MESSAGE);
+            else
+           {
+               //Cria objeto - DATA???????
+               Data data = new Data();
+               Data data1 = new Data();
+               data.setData(data_nasc);
+               data1.setData(data_adm);
+               Vendedor vendedor = new Vendedor(rg, nome, data, data1, salario,email, senha, tempo, gerente);
+               if(this.btn_alterar.isEnabled() == false && this.btn_excluir.isEnabled() == false)
+               {
+                   vendedor.cadastrar(); //Cadastrar
+                   JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
+                   //JFormCadastroMoto.this.setVisible(false);
+               }
+                    
+               
+               else //Alterar
+               {
+                   vendedor.alterar();
+                   JOptionPane.showMessageDialog(null, "Vendedor alterado com sucesso!", "Alteração", JOptionPane.INFORMATION_MESSAGE);
+                   //JFormCadastroMoto.this.setVisible(false);
+               }
+           }
+        }
+        
+        else if(btn_cadastrar.isEnabled() == false && btn_alterar.isEnabled() == false) //Excluir
+        {
+            Vendedor vendedor = new Vendedor(txt_rg.getText());
+            vendedor.excluir();
+            JOptionPane.showMessageDialog(null, "Vendedor excluído com sucesso!", "Exclusão", JOptionPane.INFORMATION_MESSAGE);
+            //JFormCadastroMoto.this.setVisible(false);
+        }
+        
+        btn_alterar.setEnabled(true);
+        btn_excluir.setEnabled(true);
+        btn_cadastrar.setEnabled(true);
+        btn_salvar.setEnabled(false);
+        
+       //Limpa os campos
+       Font fonte = new Font("Tahoma", Font.PLAIN, 11);
+       
+       txt_nome.setFont(fonte);
+       txt_nome.setForeground(Color.LIGHT_GRAY);
+       txt_rg.setFont(fonte);
+       txt_rg.setForeground(Color.LIGHT_GRAY);
+       txt_tempo.setFont(fonte);
+       txt_tempo.setForeground(Color.LIGHT_GRAY);
+       txt_email.setFont(fonte);
+       txt_email.setForeground(Color.LIGHT_GRAY);
+       txt_senha.setFont(fonte);
+       txt_senha.setForeground(Color.LIGHT_GRAY);
+       txt_nasc.setFont(fonte);
+       txt_nasc.setForeground(Color.LIGHT_GRAY);
+       txt_adm.setFont(fonte);
+       txt_adm.setForeground(Color.LIGHT_GRAY);
+       txt_sal.setFont(fonte);
+       txt_sal.setForeground(Color.LIGHT_GRAY);
+       txt_busca.setFont(fonte);
+       txt_busca.setForeground(Color.LIGHT_GRAY);
+       txt_gerente.setFont(fonte);
+       txt_gerente.setForeground(Color.LIGHT_GRAY);
+       
+       txt_nome.setText("Nme");
+       txt_rg.setText("RG");
+       txt_tempo.setText("Tempo de treinamento restante");
+       txt_email.setText("Email");
+       txt_senha.setText("Senha");
+       txt_nasc.setText("Data de nascimento: __/__/____ ");
+       txt_adm.setText("Data de dmissão: __/__/____");
+       txt_sal.setText("alário");
+       txt_busca.setText("Buscar pelo número do RG");
+       txt_gerente.setText("Buscar pelo RG do gerente");
+       
+       txt_nome.setEnabled(false);
+       txt_rg.setEnabled(false);
+       txt_tempo.setEnabled(false);
+       txt_email.setEnabled(false);
+       txt_senha.setEnabled(false);
+       txt_nasc.setEnabled(false);
+       txt_adm.setEnabled(false);
+       txt_sal.setEnabled(false);
+       txt_busca.setEnabled(false);
+       txt_gerente.setEnabled(false);
+    }//GEN-LAST:event_btn_salvarActionPerformed
+
+    private void btn_buscar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar2ActionPerformed
+       String rgG;
+       boolean flag = false;
+        
+        rgG = txt_gerente.getText();
+        if(rgG.isEmpty() || rgG.equals(" Busca pelo RG do gerente"))
+        {
+            JOptionPane.showMessageDialog(null, "Insira o RG do gerente!", "Erro", JOptionPane.ERROR_MESSAGE);
+            txt_gerente.setText("");
+        }
+        
+        else
+        {
+            try
+            {
+                FileReader arq = new FileReader(".//src//Model//gerente.txt");
+                BufferedReader lerArq = new BufferedReader(arq);
+                while(lerArq.ready() && flag == false)
+                {
+                    String linha = lerArq.readLine();
+                    String[] dadoSeparado = linha.split(";");
+                    if(dadoSeparado[0].equals(rgG))
+                    {
+                        flag = true;
+
+                        txt_gerente.setText(rgG);
+;
+                    }
+                    
+                    JOptionPane.showMessageDialog(null, "Gerente encontrado com sucesso!", "Gerente", JOptionPane.INFORMATION_MESSAGE);
+
+                }
+
+                lerArq.close();
+                if(flag == false)
+                {
+                    JOptionPane.showMessageDialog(null, "RG não encontrado!", "Erro", JOptionPane.ERROR_MESSAGE);
+                    txt_gerente.setText("");
+                }
+                
+
+            }
+
+            catch(IOException e)
+            {
+                JOptionPane.showMessageDialog(null, "Erro ao buscar dados no arquivo!", "Erro", JOptionPane.ERROR_MESSAGE);
+                txt_gerente.setText("");
+            }
+        }
+    }//GEN-LAST:event_btn_buscar2ActionPerformed
+
+    private void txt_nomeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nomeFocusGained
+       txt_nome.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_nome.setFont(fonte);
+        txt_nome.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_nomeFocusGained
+
+    private void txt_rgFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_rgFocusGained
+        txt_rg.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_rg.setFont(fonte);
+        txt_rg.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_rgFocusGained
+
+    private void txt_tempoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_tempoFocusGained
+        txt_tempo.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_tempo.setFont(fonte);
+        txt_tempo.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_tempoFocusGained
+
+    private void txt_emailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_emailFocusGained
+       txt_email.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_email.setFont(fonte);
+        txt_email.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_emailFocusGained
+
+    private void txt_senhaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_senhaFocusGained
+       txt_senha.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_senha.setFont(fonte);
+        txt_senha.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_senhaFocusGained
+
+    private void txt_nascFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nascFocusGained
+        txt_nasc.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_nasc.setFont(fonte);
+        txt_nasc.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_nascFocusGained
+
+    private void txt_admFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_admFocusGained
+       txt_adm.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_adm.setFont(fonte);
+        txt_adm.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_admFocusGained
+
+    private void txt_salFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_salFocusGained
+        txt_sal.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_sal.setFont(fonte);
+        txt_sal.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_salFocusGained
+
+    private void txt_gerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_gerenteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_gerenteActionPerformed
+
+    private void txt_gerenteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_gerenteFocusGained
+      txt_gerente.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_gerente.setFont(fonte);
+        txt_gerente.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_gerenteFocusGained
+
+    private void txt_buscaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_buscaFocusGained
+      txt_busca.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_busca.setFont(fonte);
+        txt_busca.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_buscaFocusGained
 
     /**
      * @param args the command line arguments
@@ -634,11 +1038,11 @@ public class JFormCadastroVendedor extends javax.swing.JFrame {
     private javax.swing.JButton btn_alterar;
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_buscar1;
+    private javax.swing.JButton btn_buscar2;
     private javax.swing.JButton btn_cadastrar;
     private javax.swing.JButton btn_cancelar;
     private javax.swing.JButton btn_excluir;
     private javax.swing.JButton btn_salvar;
-    private javax.swing.JComboBox<String> cmb_gerente;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel10;
@@ -658,6 +1062,7 @@ public class JFormCadastroVendedor extends javax.swing.JFrame {
     private javax.swing.JTextField txt_adm;
     private javax.swing.JTextField txt_busca;
     private javax.swing.JTextField txt_email;
+    private javax.swing.JTextField txt_gerente;
     private javax.swing.JTextField txt_nasc;
     private javax.swing.JTextField txt_nome;
     private javax.swing.JTextField txt_rg;

@@ -4,7 +4,11 @@
  * and open the template in the editor.
  */
 package View;
-
+import javax.swing.JOptionPane;
+import Controller.Venda;
+import java.awt.Color;
+import java.awt.Font;
+import java.io.*;
 /**
  *
  * @author sarah
@@ -16,6 +20,8 @@ public class JFormVenda extends javax.swing.JFrame {
      */
     public JFormVenda() {
         initComponents();
+        
+       
     }
 
     /**
@@ -27,21 +33,770 @@ public class JFormVenda extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        txt_data = new javax.swing.JTextField();
+        txt_horario = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        btn_cadastrar = new javax.swing.JButton();
+        txt_id = new javax.swing.JTextField();
+        btn_cancelar = new javax.swing.JButton();
+        btn_alterar = new javax.swing.JButton();
+        txt_cpf = new javax.swing.JTextField();
+        btn_excluir = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        txt_rg = new javax.swing.JTextField();
+        btn_salvar = new javax.swing.JButton();
+        txt_valor = new javax.swing.JTextField();
+        btn_buscar1 = new javax.swing.JButton();
+        btn_buscar2 = new javax.swing.JButton();
+        txt_chassi = new javax.swing.JTextField();
+        btn_buscar3 = new javax.swing.JButton();
+        cmb_tipo = new javax.swing.JComboBox<>();
+        btn_buscar = new javax.swing.JButton();
+        txt_busca = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+
+        txt_data.setForeground(new java.awt.Color(153, 153, 153));
+        txt_data.setText(" Data: __/__/____");
+        txt_data.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+        txt_data.setEnabled(false);
+        txt_data.setMaximumSize(new java.awt.Dimension(17, 17));
+        txt_data.setName("txt_data"); // NOI18N
+        txt_data.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_dataFocusGained(evt);
+            }
+        });
+
+        txt_horario.setForeground(new java.awt.Color(153, 153, 153));
+        txt_horario.setText(" Horário __:__");
+        txt_horario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+        txt_horario.setEnabled(false);
+        txt_horario.setMaximumSize(new java.awt.Dimension(17, 17));
+        txt_horario.setName("txt_horario"); // NOI18N
+        txt_horario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_horarioFocusGained(evt);
+            }
+        });
+        txt_horario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_horarioActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setBackground(new java.awt.Color(0, 102, 102));
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 30)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel3.setText("VENDA");
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/concessionaria64.png"))); // NOI18N
+
+        btn_cadastrar.setBackground(new java.awt.Color(0, 102, 102));
+        btn_cadastrar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btn_cadastrar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_cadastrar.setText("Cadastrar");
+        btn_cadastrar.setName("btn_cadastrar"); // NOI18N
+        btn_cadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cadastrarActionPerformed(evt);
+            }
+        });
+
+        txt_id.setForeground(new java.awt.Color(153, 153, 153));
+        txt_id.setText(" ID da venda");
+        txt_id.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+        txt_id.setEnabled(false);
+        txt_id.setMaximumSize(new java.awt.Dimension(17, 17));
+        txt_id.setName("txt_id"); // NOI18N
+        txt_id.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_idFocusGained(evt);
+            }
+        });
+        txt_id.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_idActionPerformed(evt);
+            }
+        });
+
+        btn_cancelar.setBackground(new java.awt.Color(255, 255, 255));
+        btn_cancelar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btn_cancelar.setForeground(new java.awt.Color(0, 102, 102));
+        btn_cancelar.setText("Cancelar");
+        btn_cancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+        btn_cancelar.setName("btn_cancelar"); // NOI18N
+        btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarActionPerformed(evt);
+            }
+        });
+
+        btn_alterar.setBackground(new java.awt.Color(0, 102, 102));
+        btn_alterar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btn_alterar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_alterar.setText("Alterar");
+        btn_alterar.setName("btn_cadastrar"); // NOI18N
+        btn_alterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_alterarActionPerformed(evt);
+            }
+        });
+
+        txt_cpf.setForeground(new java.awt.Color(153, 153, 153));
+        txt_cpf.setText(" CPF do cliente");
+        txt_cpf.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+        txt_cpf.setEnabled(false);
+        txt_cpf.setMaximumSize(new java.awt.Dimension(17, 17));
+        txt_cpf.setName("txt_cpf"); // NOI18N
+        txt_cpf.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_cpfFocusGained(evt);
+            }
+        });
+
+        btn_excluir.setBackground(new java.awt.Color(0, 102, 102));
+        btn_excluir.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btn_excluir.setForeground(new java.awt.Color(255, 255, 255));
+        btn_excluir.setText("Excluir");
+        btn_excluir.setName("btn_cadastrar"); // NOI18N
+        btn_excluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_excluirActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel7.setText("Forma de pagamento:");
+
+        txt_rg.setForeground(new java.awt.Color(153, 153, 153));
+        txt_rg.setText(" RG do vendedor");
+        txt_rg.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+        txt_rg.setEnabled(false);
+        txt_rg.setMaximumSize(new java.awt.Dimension(17, 17));
+        txt_rg.setName("txt_rg"); // NOI18N
+        txt_rg.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_rgFocusGained(evt);
+            }
+        });
+
+        btn_salvar.setBackground(new java.awt.Color(0, 102, 102));
+        btn_salvar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btn_salvar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_salvar.setText("Confirmar");
+        btn_salvar.setEnabled(false);
+        btn_salvar.setName("btn_salvar"); // NOI18N
+        btn_salvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salvarActionPerformed(evt);
+            }
+        });
+
+        txt_valor.setForeground(new java.awt.Color(153, 153, 153));
+        txt_valor.setText(" Valor");
+        txt_valor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+        txt_valor.setEnabled(false);
+        txt_valor.setMaximumSize(new java.awt.Dimension(17, 17));
+        txt_valor.setName("txt_valor"); // NOI18N
+        txt_valor.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_valorFocusGained(evt);
+            }
+        });
+        txt_valor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_valorActionPerformed(evt);
+            }
+        });
+
+        btn_buscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pesquisa-de-lupa.png"))); // NOI18N
+        btn_buscar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+        btn_buscar1.setEnabled(false);
+        btn_buscar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscar1ActionPerformed(evt);
+            }
+        });
+
+        btn_buscar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pesquisa-de-lupa.png"))); // NOI18N
+        btn_buscar2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+        btn_buscar2.setEnabled(false);
+        btn_buscar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscar2ActionPerformed(evt);
+            }
+        });
+
+        txt_chassi.setForeground(new java.awt.Color(153, 153, 153));
+        txt_chassi.setText(" Número do chassi");
+        txt_chassi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+        txt_chassi.setEnabled(false);
+        txt_chassi.setMaximumSize(new java.awt.Dimension(17, 17));
+        txt_chassi.setName("txt_rg"); // NOI18N
+        txt_chassi.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_chassiFocusGained(evt);
+            }
+        });
+        txt_chassi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_chassiActionPerformed(evt);
+            }
+        });
+
+        btn_buscar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pesquisa-de-lupa.png"))); // NOI18N
+        btn_buscar3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+        btn_buscar3.setEnabled(false);
+        btn_buscar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscar3ActionPerformed(evt);
+            }
+        });
+
+        cmb_tipo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        cmb_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A vista", "A prazo(12x)", "A prazo(24x)", "A prazo(36x)" }));
+        cmb_tipo.setEnabled(false);
+
+        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pesquisa-de-lupa.png"))); // NOI18N
+        btn_buscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+        btn_buscar.setEnabled(false);
+        btn_buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscarActionPerformed(evt);
+            }
+        });
+
+        txt_busca.setForeground(new java.awt.Color(153, 153, 153));
+        txt_busca.setText(" Buscar pelo ID da venda");
+        txt_busca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+        txt_busca.setEnabled(false);
+        txt_busca.setMaximumSize(new java.awt.Dimension(17, 17));
+        txt_busca.setName("txt_busca"); // NOI18N
+        txt_busca.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_buscaFocusGained(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(btn_cadastrar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_alterar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_excluir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
+                        .addComponent(btn_salvar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txt_chassi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txt_id, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
+                                .addComponent(txt_cpf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txt_rg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel3)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btn_buscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn_buscar2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn_buscar3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(60, 60, 60)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_valor, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7)
+                                    .addComponent(cmb_tipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(123, 123, 123)
+                                .addComponent(txt_data, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txt_horario, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txt_busca, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_buscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_busca, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3))
+                                .addGap(26, 26, 26)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txt_data, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txt_horario, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txt_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn_buscar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txt_rg, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(txt_valor, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel7))))
+                    .addComponent(btn_buscar2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(txt_chassi, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_buscar3))
+                    .addComponent(cmb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_cadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_alterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_excluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_salvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txt_dataFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_dataFocusGained
+        txt_data.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_data.setFont(fonte);
+        txt_data.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_dataFocusGained
+
+    private void txt_horarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_horarioFocusGained
+        txt_horario.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_horario.setFont(fonte);
+        txt_horario.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_horarioFocusGained
+
+    private void txt_horarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_horarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_horarioActionPerformed
+
+    private void btn_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrarActionPerformed
+
+        txt_chassi.setEnabled(true);
+        txt_cpf.setEnabled(true);
+        txt_rg.setEnabled(true);
+        txt_valor.setEnabled(true);
+        txt_data.setEnabled(true);
+        txt_horario.setEnabled(true);
+        txt_id.setEnabled(true);
+        cmb_tipo.setEnabled(true);
+
+
+        btn_alterar.setEnabled(false);
+        btn_excluir.setEnabled(false);
+        btn_salvar.setEnabled(true);
+        btn_buscar1.setEnabled(true);
+        btn_buscar2.setEnabled(true);
+        btn_buscar3.setEnabled(true);
+    }//GEN-LAST:event_btn_cadastrarActionPerformed
+
+    private void txt_idFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_idFocusGained
+        txt_id.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_id.setFont(fonte);
+        txt_id.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_idFocusGained
+
+    private void txt_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_idActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_idActionPerformed
+
+    private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
+        JFormVenda.this.setVisible(false);
+    }//GEN-LAST:event_btn_cancelarActionPerformed
+
+    private void btn_alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterarActionPerformed
+        txt_busca.setText("");
+        txt_busca.setEnabled(true);
+        btn_buscar.setEnabled(true);
+        
+        btn_cadastrar.setEnabled(false);
+        btn_excluir.setEnabled(false);
+        btn_salvar.setEnabled(false);
+    }//GEN-LAST:event_btn_alterarActionPerformed
+
+    private void txt_cpfFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_cpfFocusGained
+        txt_cpf.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_cpf.setFont(fonte);
+        txt_cpf.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_cpfFocusGained
+
+    private void btn_excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirActionPerformed
+        txt_busca.setText("");
+        txt_busca.setEnabled(true);
+        btn_buscar.setEnabled(true);
+        btn_cadastrar.setEnabled(false);
+        btn_alterar.setEnabled(false);
+        btn_salvar.setEnabled(false);
+
+    }//GEN-LAST:event_btn_excluirActionPerformed
+
+    private void txt_rgFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_rgFocusGained
+        txt_rg.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_rg.setFont(fonte);
+        txt_rg.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_rgFocusGained
+
+    private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
+
+        if((this.btn_alterar.isEnabled() == false && this.btn_excluir.isEnabled() == false) || (btn_cadastrar.isEnabled() == false && btn_excluir.isEnabled() == false))
+        {
+            String rg, cpf, chassi, tipo, data, hora;
+            int id;
+            double valor;
+
+            //Pega os dados
+            chassi = txt_chassi.getText();
+            cpf= txt_cpf.getText();
+            rg= txt_rg.getText();
+            tipo = cmb_tipo.getSelectedItem().toString();
+            data = txt_data.getText();
+            hora = txt_horario.getText();
+            id = Integer.parseInt(txt_id.getText());
+            valor = Double.parseDouble(txt_valor.getText());
+
+            //Confere
+            /*if(chassi.isEmpty() || chassi.equals("Número do Chassi"))
+            JOptionPane.showMessageDialog(null, "Campo chassi não preenchido!", "Erro", JOptionPane.ERROR_MESSAGE);
+            else if(marca.isEmpty() || marca.equals("Marca"))
+            JOptionPane.showMessageDialog(null, "Campo marca não preenchido!", "Erro", JOptionPane.ERROR_MESSAGE);
+            else if(modelo.isEmpty() || modelo.equals("Modelo"))
+            JOptionPane.showMessageDialog(null, "Campo modelo não preenchido!", "Erro", JOptionPane.ERROR_MESSAGE);
+            else if(tipoCombustivel.isEmpty() || tipoCombustivel.equals("Tipo de combustível"))
+            JOptionPane.showMessageDialog(null, "Campo combustível não preenchido!", "Erro", JOptionPane.ERROR_MESSAGE);
+            else if(ano < 1950 || ano > 2050)
+            JOptionPane.showMessageDialog(null, "Ano inválido!", "Erro", JOptionPane.ERROR_MESSAGE);
+            else if(km < 0)
+            JOptionPane.showMessageDialog(null, "Km inválido!", "Erro", JOptionPane.ERROR_MESSAGE);
+            else if(peso < 0 || peso > 10000)
+            JOptionPane.showMessageDialog(null, "Peso inválido!", "Erro", JOptionPane.ERROR_MESSAGE);
+            else if(cilindradas < 1)
+            JOptionPane.showMessageDialog(null, "Cilindradas inválido!", "Erro", JOptionPane.ERROR_MESSAGE);*/
+            //else
+            //{
+                //Cria objeto
+                Venda venda = new Venda();
+                if(this.btn_alterar.isEnabled() == false && this.btn_excluir.isEnabled() == false)
+                {
+                    motocicleta.cadastrar(); //Cadastrar
+                    JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
+                    //JFormCadastroMoto.this.setVisible(false);
+                }
+
+                else //Alterar
+                {
+                    motocicleta.alterar();
+                    JOptionPane.showMessageDialog(null, "Veículo alterado com sucesso!", "Alteração", JOptionPane.INFORMATION_MESSAGE);
+                    //JFormCadastroMoto.this.setVisible(false);
+                }
+           // }
+        }
+
+        else if(btn_cadastrar.isEnabled() == false && btn_alterar.isEnabled() == false) //Excluir
+        {
+            Motocicleta motocicleta = new Motocicleta(txt_chassi.getText());
+            motocicleta.excluir();
+            JOptionPane.showMessageDialog(null, "Veículo excluído com sucesso!", "Exclusão", JOptionPane.INFORMATION_MESSAGE);
+            //JFormCadastroMoto.this.setVisible(false);
+        }
+
+        btn_alterar.setEnabled(true);
+        btn_excluir.setEnabled(true);
+        btn_cadastrar.setEnabled(true);
+        btn_salvar.setEnabled(false);
+
+        //Limpa os campos
+        Font fonte = new Font("Tahoma", Font.PLAIN, 11);
+
+        txt_chassi.setFont(fonte);
+        txt_chassi.setForeground(Color.LIGHT_GRAY);
+        txt_cpf.setFont(fonte);
+        txt_cpf.setForeground(Color.LIGHT_GRAY);
+        txt_rg.setFont(fonte);
+        txt_rg.setForeground(Color.LIGHT_GRAY);
+        txt_valor.setFont(fonte);
+        txt_valor.setForeground(Color.LIGHT_GRAY);
+        txt_km.setFont(fonte);
+        txt_km.setForeground(Color.LIGHT_GRAY);
+        txt_data.setFont(fonte);
+        txt_data.setForeground(Color.LIGHT_GRAY);
+        txt_horario.setFont(fonte);
+        txt_horario.setForeground(Color.LIGHT_GRAY);
+        txt_cilindradas.setFont(fonte);
+        txt_cilindradas.setForeground(Color.LIGHT_GRAY);
+        txt_busca.setFont(fonte);
+        txt_busca.setForeground(Color.LIGHT_GRAY);
+
+        txt_chassi.setText("Número do Chassi");
+        txt_cpf.setText("Marca");
+        txt_rg.setText("Modelo");
+        txt_valor.setText("Ano");
+        txt_km.setText("Km");
+        txt_data.setText("Tipo de combustível");
+        txt_horario.setText("Peso");
+        txt_cilindradas.setText("Cilindradas");
+        txt_busca.setText("Buscar pelo número do chassi");
+
+        txt_chassi.setEnabled(false);
+        txt_cpf.setEnabled(false);
+        txt_rg.setEnabled(false);
+        txt_valor.setEnabled(false);
+        txt_km.setEnabled(false);
+        txt_data.setEnabled(false);
+        txt_horario.setEnabled(false);
+        txt_cilindradas.setEnabled(false);
+        txt_chassi.setEnabled(false);
+        cmb_tipo.setEnabled(false);
+    }//GEN-LAST:event_btn_salvarActionPerformed
+
+    private void txt_valorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_valorFocusGained
+        txt_valor.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_valor.setFont(fonte);
+        txt_valor.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_valorFocusGained
+
+    private void txt_valorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_valorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_valorActionPerformed
+
+    private void btn_buscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar1ActionPerformed
+        String cpf; 
+        
+        cpf = txt_busca.getText();
+        if(cpf.isEmpty() || cpf.equals(" CPF do cliente"))
+        {
+            JOptionPane.showMessageDialog(null, "Insira o CPF do cliente!", "Erro", JOptionPane.ERROR_MESSAGE);
+            txt_cpf.setText("");
+        }
+        
+        else
+        {
+            try
+            {
+                FileReader arq = new FileReader(".//src//Model//clientes.txt");
+                BufferedReader lerArq = new BufferedReader(arq);
+                while(lerArq.ready() && flag == false)
+                {
+                    String linha = lerArq.readLine();
+                    String[] dadoSeparado = linha.split(";");
+                    if(dadoSeparado[1].equals(cpf))
+                    {
+                        flag = true;
+
+                        txt_cpf.setText(cpf);
+;
+                    }
+                }
+
+                lerArq.close();
+                if(flag == false)
+                {
+                    JOptionPane.showMessageDialog(null, "CPF não encontrado!", "Erro", JOptionPane.ERROR_MESSAGE);
+                    txt_cpf.setText("");
+                }
+                
+
+            }
+
+            catch(IOException e)
+            {
+                JOptionPane.showMessageDialog(null, "Erro ao buscar dados no arquivo!", "Erro", JOptionPane.ERROR_MESSAGE);
+                JFormVenda.this.setVisible(false);
+            }
+        }
+    }//GEN-LAST:event_btn_buscar1ActionPerformed
+
+    private void btn_buscar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_buscar2ActionPerformed
+
+    private void txt_chassiFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_chassiFocusGained
+        txt_chassi.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_chassi.setFont(fonte);
+        txt_chassi.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_chassiFocusGained
+
+    private void btn_buscar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_buscar3ActionPerformed
+
+    private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
+        //Verificar se achou o número, se achou fazer tudo aqui embaixo
+        String id;
+        boolean flag = false;
+
+        txt_chassi.setText("");
+        txt_rg.setText("");
+        txt_cpf.setText("");
+        txt_id.setText("");
+        txt_valor.setText("");
+        txt_data.setText("");
+        txt_horario.setText("");
+
+
+        id = txt_busca.getText();
+        if(id.isEmpty() || id.equals("Buscar pelo ID da venda"))
+        {
+            JOptionPane.showMessageDialog(null, "Insira o ID da venda!", "Erro", JOptionPane.ERROR_MESSAGE);
+            JFormVenda.this.setVisible(false);
+        }
+        else
+        {
+            try
+            {
+                FileReader arq = new FileReader(".//src//Model//vendas.txt");
+                BufferedReader lerArq = new BufferedReader(arq);
+                while(lerArq.ready() && flag == false)
+                {
+                    String linha = lerArq.readLine();
+                    String[] dadoSeparado = linha.split(";");
+                    if(dadoSeparado[0].equals(id))
+                    {
+                        flag = true;
+
+                        txt_id.setText(id);
+                        txt_marca.setText(dadoSeparado[1]);
+                        txt_modelo.setText(dadoSeparado[2]);
+                        txt_ano.setText(dadoSeparado[3]);
+                        txt_km.setText(dadoSeparado[4]);
+                        txt_combs.setText(dadoSeparado[5]);
+                        txt_peso.setText(dadoSeparado[6]);
+                        txt_status.setText(dadoSeparado[7]);
+                        txt_cilindradas.setText(dadoSeparado[8]);
+                        cmb_tipo.setSelectedItem(dadoSeparado[9]);
+                    }
+                }
+
+                lerArq.close();
+                if(flag == false)
+                JOptionPane.showMessageDialog(null, "Número do chassi não encontrado!", "Erro", JOptionPane.ERROR_MESSAGE);
+                JFormCadastroMoto.this.setVisible(false);
+                
+                        btn_salvar.setEnabled(true);
+                        txt_busca.setEnabled(false);
+                        btn_buscar.setEnabled(false);
+            }
+
+            catch(IOException e)
+            {
+                JOptionPane.showMessageDialog(null, "Erro ao buscar dados no arquivo!", "Erro", JOptionPane.ERROR_MESSAGE);
+                JFormCadastroMoto.this.setVisible(false);
+            }
+
+        }
+
+        if(this.btn_alterar.isEnabled())
+        {
+            txt_id.setEnabled(false);
+            txt_rg.setEnabled(true);
+            txt_cpf.setEnabled(true);
+            txt_chassi.setEnabled(true);
+            txt_valor.setEnabled(true);
+            txt_data.setEnabled(true);
+            txt_horario.setEnabled(true);
+            cmb_tipo.setEnabled(true);
+            btn_alterar.setEnabled(false);
+            btn_buscar1.setEnabled(true);
+            btn_buscar2.setEnabled(true);
+            btn_buscar3.setEnabled(true);
+
+        }
+
+        else if(this.btn_excluir.isEnabled())
+        {
+            txt_id.setEnabled(false);
+            txt_rg.setEnabled(false);
+            txt_cpf.setEnabled(false);
+            txt_chassi.setEnabled(false);
+            txt_valor.setEnabled(false);
+            txt_data.setEnabled(false);
+            txt_horario.setEnabled(false);
+            cmb_tipo.setEnabled(false);
+            btn_excluir.setEnabled(false);
+        }
+    }//GEN-LAST:event_btn_buscarActionPerformed
+
+    private void txt_buscaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_buscaFocusGained
+        txt_busca.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_busca.setFont(fonte);
+        txt_busca.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_buscaFocusGained
+
+    private void txt_chassiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_chassiActionPerformed
+
+    }//GEN-LAST:event_txt_chassiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +834,28 @@ public class JFormVenda extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_alterar;
+    private javax.swing.JButton btn_buscar;
+    private javax.swing.JButton btn_buscar1;
+    private javax.swing.JButton btn_buscar2;
+    private javax.swing.JButton btn_buscar3;
+    private javax.swing.JButton btn_cadastrar;
+    private javax.swing.JButton btn_cancelar;
+    private javax.swing.JButton btn_excluir;
+    private javax.swing.JButton btn_salvar;
+    private javax.swing.JComboBox<String> cmb_tipo;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField txt_busca;
+    private javax.swing.JTextField txt_chassi;
+    private javax.swing.JTextField txt_cpf;
+    private javax.swing.JTextField txt_data;
+    private javax.swing.JTextField txt_horario;
+    private javax.swing.JTextField txt_id;
+    private javax.swing.JTextField txt_rg;
+    private javax.swing.JTextField txt_valor;
     // End of variables declaration//GEN-END:variables
 }

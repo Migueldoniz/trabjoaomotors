@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Controller;
 import java.io.*;
 import java.util.ArrayList;
@@ -6,9 +11,10 @@ import javax.swing.JOptionPane;
 public class Cliente extends Operacoes{
     private String cliCPF;
     private String cliNome;
-    Data cliDataNasc = new Data();
+    private Data cliDataNasc = new Data();
+    private Endereco cliEnd = new Endereco();
     private double cliRenda;
-    ArrayList<String> cliDependentes = new ArrayList<>();
+    private int cliDependentes;
     
     public String getCliCPF() {
         return cliCPF;
@@ -42,22 +48,35 @@ public class Cliente extends Operacoes{
         this.cliRenda = cliRenda;
     }
 
-    public ArrayList<String> getCliDependentes() {
+    public int getCliDependentes() {
         return cliDependentes;
     }
 
-    public void setCliDependentes(ArrayList<String> cliDependentes) {
+    public void setCliDependentes(int cliDependentes) {
         this.cliDependentes = cliDependentes;
     }
 
-    public Cliente(String cliCPF, String cliNome, Data cliDataNasc, double cliRenda, ArrayList<String> cliDependentes) {
+    public Endereco getCliEnd() {
+        return cliEnd;
+    }
+
+    public void setCliEnd(Endereco cliEnd) {
+        this.cliEnd = cliEnd;
+    }
+
+    public Cliente(String cliCPF, String cliNome, double cliRenda, int cliDependentes, Data cliDataNasc, Endereco cliEnd) {
         this.cliCPF = cliCPF;
         this.cliNome = cliNome;
-        this.cliDataNasc = cliDataNasc;
         this.cliRenda = cliRenda;
         this.cliDependentes = cliDependentes;
+        this.cliDataNasc = cliDataNasc;
+        this.cliEnd = cliEnd;
     }
 
+    public Cliente(String cliCPF) {
+        this.cliCPF = cliCPF;
+    }
+    
     @Override
     public void cadastrar() 
     {
@@ -65,7 +84,7 @@ public class Cliente extends Operacoes{
         {
             File arq = new File(".//src//Model//clientes.txt");
             FileWriter escritor = new FileWriter(arq, true);
-            escritor.write(this.getCliCPF() + ";" + this.getCliNome() + ";" + this.getCliDataNasc() + ";" + this.getCliRenda() + ";" + this.getCliDependentes() + "\n");
+            escritor.write(this.getCliCPF() + ";" + this.getCliNome() + ";" + this.getCliDataNasc().getData() + ";" + this.getCliRenda() + ";" + this.getCliDependentes() + ";" + this.getCliEnd().getEndCidade() + ";" + this.getCliEnd().getEndBairro() + ";" + this.getCliEnd().getEndRua() + ";" + this.getCliEnd().getEndNum() +"\n");
             escritor.close();
         }
         

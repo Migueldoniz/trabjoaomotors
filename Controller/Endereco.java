@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Controller;
 
 public class Endereco {
@@ -37,11 +42,5 @@ public class Endereco {
     public void setEndCidade(String endCidade) {
         this.endCidade = endCidade;
     }
-
-    public Endereco(String endRua, int endNum, String endBairro, String endCidade) {
-        this.endRua = endRua;
-        this.endNum = endNum;
-        this.endBairro = endBairro;
-        this.endCidade = endCidade;
-    }    
+ 
 }

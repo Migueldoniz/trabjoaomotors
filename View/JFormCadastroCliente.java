@@ -5,6 +5,16 @@
  */
 package View;
 
+import Controller.Cliente;
+import Controller.Data;
+import Controller.Endereco;
+import java.awt.Color;
+import java.awt.Font;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author sarah
@@ -76,6 +86,11 @@ public class JFormCadastroCliente extends javax.swing.JFrame {
         txt_nome.setEnabled(false);
         txt_nome.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_nome.setName("txt_nome"); // NOI18N
+        txt_nome.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_nomeFocusGained(evt);
+            }
+        });
 
         txt_cpf.setForeground(new java.awt.Color(153, 153, 153));
         txt_cpf.setText(" CPF");
@@ -83,6 +98,11 @@ public class JFormCadastroCliente extends javax.swing.JFrame {
         txt_cpf.setEnabled(false);
         txt_cpf.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_cpf.setName("txt_cpf"); // NOI18N
+        txt_cpf.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_cpfFocusGained(evt);
+            }
+        });
 
         txt_rua.setForeground(new java.awt.Color(153, 153, 153));
         txt_rua.setText(" Rua");
@@ -90,6 +110,11 @@ public class JFormCadastroCliente extends javax.swing.JFrame {
         txt_rua.setEnabled(false);
         txt_rua.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_rua.setName("txt_rua"); // NOI18N
+        txt_rua.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_ruaFocusGained(evt);
+            }
+        });
 
         txt_nasc.setForeground(new java.awt.Color(153, 153, 153));
         txt_nasc.setText(" Data de nascimento: __/__/____");
@@ -97,6 +122,11 @@ public class JFormCadastroCliente extends javax.swing.JFrame {
         txt_nasc.setEnabled(false);
         txt_nasc.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_nasc.setName("txt_nasc"); // NOI18N
+        txt_nasc.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_nascFocusGained(evt);
+            }
+        });
         txt_nasc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_nascActionPerformed(evt);
@@ -109,6 +139,11 @@ public class JFormCadastroCliente extends javax.swing.JFrame {
         txt_dependentes.setEnabled(false);
         txt_dependentes.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_dependentes.setName("txt_dependentes"); // NOI18N
+        txt_dependentes.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_dependentesFocusGained(evt);
+            }
+        });
 
         txt_renda.setForeground(new java.awt.Color(153, 153, 153));
         txt_renda.setText(" Renda");
@@ -116,6 +151,11 @@ public class JFormCadastroCliente extends javax.swing.JFrame {
         txt_renda.setEnabled(false);
         txt_renda.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_renda.setName("txt_renda"); // NOI18N
+        txt_renda.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_rendaFocusGained(evt);
+            }
+        });
         txt_renda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_rendaActionPerformed(evt);
@@ -130,6 +170,11 @@ public class JFormCadastroCliente extends javax.swing.JFrame {
         txt_bairro.setEnabled(false);
         txt_bairro.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_bairro.setName("txt_bairro"); // NOI18N
+        txt_bairro.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_bairroFocusGained(evt);
+            }
+        });
         txt_bairro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_bairroActionPerformed(evt);
@@ -146,6 +191,11 @@ public class JFormCadastroCliente extends javax.swing.JFrame {
         txt_cidade.setEnabled(false);
         txt_cidade.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_cidade.setName("txt_cidade"); // NOI18N
+        txt_cidade.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_cidadeFocusGained(evt);
+            }
+        });
         txt_cidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_cidadeActionPerformed(evt);
@@ -158,6 +208,11 @@ public class JFormCadastroCliente extends javax.swing.JFrame {
         txt_num.setEnabled(false);
         txt_num.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_num.setName("txt_num"); // NOI18N
+        txt_num.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_numFocusGained(evt);
+            }
+        });
         txt_num.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_numActionPerformed(evt);
@@ -170,6 +225,11 @@ public class JFormCadastroCliente extends javax.swing.JFrame {
         btn_salvar.setText("Confirmar");
         btn_salvar.setEnabled(false);
         btn_salvar.setName("btn_salvar"); // NOI18N
+        btn_salvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salvarActionPerformed(evt);
+            }
+        });
 
         btn_cadastrar.setBackground(new java.awt.Color(0, 102, 102));
         btn_cadastrar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -222,6 +282,11 @@ public class JFormCadastroCliente extends javax.swing.JFrame {
         txt_busca.setEnabled(false);
         txt_busca.setMaximumSize(new java.awt.Dimension(17, 17));
         txt_busca.setName("txt_busca"); // NOI18N
+        txt_busca.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_buscaFocusGained(evt);
+            }
+        });
 
         btn_buscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pesquisa-de-lupa.png"))); // NOI18N
         btn_buscar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
@@ -397,19 +462,21 @@ public class JFormCadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_cadastrarActionPerformed
 
     private void btn_alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterarActionPerformed
+        txt_busca.setText("");
         txt_busca.setEnabled(true);
         btn_buscar1.setEnabled(true);
         btn_cadastrar.setEnabled(false);
         btn_excluir.setEnabled(false);
-        btn_salvar.setEnabled(true);
+        btn_salvar.setEnabled(false);
     }//GEN-LAST:event_btn_alterarActionPerformed
 
     private void btn_excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirActionPerformed
+        txt_busca.setText("");
         txt_busca.setEnabled(true);
         btn_buscar1.setEnabled(true);
         btn_cadastrar.setEnabled(false);
         btn_alterar.setEnabled(false);
-        btn_salvar.setEnabled(true);
+        btn_salvar.setEnabled(false);
     }//GEN-LAST:event_btn_excluirActionPerformed
 
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
@@ -418,6 +485,9 @@ public class JFormCadastroCliente extends javax.swing.JFrame {
 
     private void btn_buscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar1ActionPerformed
         //Verificar se achou o número, se achou fazer tudo aqui embaixo
+        String cpf;
+        boolean flag = false;
+        
         txt_nome.setText("");
         txt_cpf.setText("");
         txt_dependentes.setText("");
@@ -428,15 +498,61 @@ public class JFormCadastroCliente extends javax.swing.JFrame {
         txt_bairro.setText("");
         txt_cidade.setText("");
 
+        btn_salvar.setEnabled(true);
         txt_busca.setEnabled(false);
         btn_buscar1.setEnabled(false);
 
-        //Carregar os dados aqui
+        cpf = txt_busca.getText();
+        
+        if(cpf.isEmpty() || cpf.equals("Buscar pelo número do CPF"))
+        {
+            JOptionPane.showMessageDialog(null, "Insira o número do CPF!", "Erro", JOptionPane.ERROR_MESSAGE);
+            JFormCadastroCliente.this.setVisible(false);
+        }
+        else
+        {
+            try
+            {
+                FileReader arq = new FileReader(".//src//Model//clientes.txt");
+                BufferedReader lerArq = new BufferedReader(arq);
+                while(lerArq.ready() && flag == false)
+                {
+                    String linha = lerArq.readLine();
+                    String[] dadoSeparado = linha.split(";");
+                    if(dadoSeparado[0].equals(cpf))
+                    {
+                        flag = true;
+                        
+                        txt_cpf.setText(cpf);
+                        txt_nome.setText(dadoSeparado[1]);
+                        txt_nasc.setText(dadoSeparado[2]);
+                        txt_renda.setText(dadoSeparado[3]);
+                        txt_dependentes.setText(dadoSeparado[4]);
+                        txt_cidade.setText(dadoSeparado[5]);
+                        txt_bairro.setText(dadoSeparado[6]);
+                        txt_rua.setText(dadoSeparado[7]);
+                        txt_num.setText(dadoSeparado[8]);
+      
+                    }
+                }
 
+                lerArq.close();
+                if(flag == false)
+                     JOptionPane.showMessageDialog(null, "Número do CPF não encontrado!", "Erro", JOptionPane.ERROR_MESSAGE);
+
+            }
+            
+            catch(IOException e)
+            {
+                JOptionPane.showMessageDialog(null, "Erro ao buscar dados no arquivo!", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+            
+        }
+        
         if(this.btn_alterar.isEnabled())
         {
             txt_nome.setEnabled(true);
-            txt_cpf.setEnabled(true);
+            txt_cpf.setEnabled(false);
             txt_dependentes.setEnabled(true);
             txt_nasc.setEnabled(true);
             txt_renda.setEnabled(true);
@@ -448,9 +564,215 @@ public class JFormCadastroCliente extends javax.swing.JFrame {
 
         else if(this.btn_excluir.isEnabled())
         {
-            //Chamar o método delete
+            txt_nome.setEnabled(false);
+            txt_cpf.setEnabled(false);
+            txt_dependentes.setEnabled(false);
+            txt_nasc.setEnabled(false);
+            txt_renda.setEnabled(false);
+            txt_rua.setEnabled(false);
+            txt_num.setEnabled(false);
+            txt_bairro.setEnabled(false);
+            txt_cidade.setEnabled(false);
         }
     }//GEN-LAST:event_btn_buscar1ActionPerformed
+
+    private void txt_buscaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_buscaFocusGained
+        txt_busca.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_busca.setFont(fonte);
+        txt_busca.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_buscaFocusGained
+
+    private void txt_nomeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nomeFocusGained
+        txt_nome.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_nome.setFont(fonte);
+        txt_nome.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_nomeFocusGained
+
+    private void txt_cpfFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_cpfFocusGained
+        txt_cpf.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_cpf.setFont(fonte);
+        txt_cpf.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_cpfFocusGained
+
+    private void txt_ruaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_ruaFocusGained
+        txt_rua.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_rua.setFont(fonte);
+        txt_rua.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_ruaFocusGained
+
+    private void txt_numFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_numFocusGained
+        txt_num.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_num.setFont(fonte);
+        txt_num.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_numFocusGained
+
+    private void txt_bairroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_bairroFocusGained
+        txt_bairro.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_bairro.setFont(fonte);
+        txt_bairro.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_bairroFocusGained
+
+    private void txt_cidadeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_cidadeFocusGained
+        txt_cidade.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_cidade.setFont(fonte);
+        txt_cidade.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_cidadeFocusGained
+
+    private void txt_nascFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nascFocusGained
+        txt_nasc.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_nasc.setFont(fonte);
+        txt_nasc.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_nascFocusGained
+
+    private void txt_dependentesFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_dependentesFocusGained
+        txt_dependentes.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_dependentes.setFont(fonte);
+        txt_dependentes.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_dependentesFocusGained
+
+    private void txt_rendaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_rendaFocusGained
+        txt_renda.setText("");
+        Font fonte = new Font("Tahoma", Font.PLAIN, 14);
+        txt_renda.setFont(fonte);
+        txt_renda.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txt_rendaFocusGained
+
+    private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
+         if((this.btn_alterar.isEnabled() == false && this.btn_excluir.isEnabled() == false) || (btn_cadastrar.isEnabled() == false && btn_excluir.isEnabled() == false))
+         {
+             String nome, cpf, dataN, cidade, rua, bairro;
+             int dependentes, num;
+             double renda;
+             Data data = new Data();
+             Endereco end = new Endereco();
+             
+             cpf = txt_cpf.getText();
+             nome = txt_nome.getText();
+             dataN = txt_nasc.getText();
+             dependentes = Integer.parseInt(txt_dependentes.getText());
+             renda = Double.parseDouble(txt_cpf.getText());
+             cidade = txt_cidade.getText();
+             rua = txt_rua.getText();
+             bairro = txt_bairro.getText();
+             num = Integer.parseInt(txt_num.getText());
+             
+             if(cpf.isEmpty() || cpf.equals("CPF"))
+               JOptionPane.showMessageDialog(null, "Campo CPF não preenchido!", "Erro", JOptionPane.ERROR_MESSAGE);
+             
+             else if(nome.isEmpty() || nome.equals("Nome"))
+                 JOptionPane.showMessageDialog(null, "Campo nome não preenchido!", "Erro", JOptionPane.ERROR_MESSAGE);
+             
+             else if(dataN.isEmpty() || dataN.equals(" Data de nascimento: __/__/____"))
+                 JOptionPane.showMessageDialog(null, "Campo data de nascimento não preenchido!", "Erro", JOptionPane.ERROR_MESSAGE);
+             
+             else if(cidade.isEmpty() || cidade.equals("Cidade"))
+                 JOptionPane.showMessageDialog(null, "Campo cidade não preenchido!", "Erro", JOptionPane.ERROR_MESSAGE);
+             
+             else if(rua.isEmpty() || rua.equals("Rua"))
+                 JOptionPane.showMessageDialog(null, "Campo rua não preenchido!", "Erro", JOptionPane.ERROR_MESSAGE);
+             
+             else if(bairro.isEmpty() || bairro.equals("Bairro"))
+                 JOptionPane.showMessageDialog(null, "Campo bairro não preenchido!", "Erro", JOptionPane.ERROR_MESSAGE);
+             
+             else if(dependentes < 0)
+                  JOptionPane.showMessageDialog(null, "Número de dependentes inválido!", "Erro", JOptionPane.ERROR_MESSAGE);
+             
+             else if(renda < 0)
+                  JOptionPane.showMessageDialog(null, "Renda inválida!", "Erro", JOptionPane.ERROR_MESSAGE);
+             
+             else if(num < 0)
+                 JOptionPane.showMessageDialog(null, "Número da residência inválido!", "Erro", JOptionPane.ERROR_MESSAGE);
+              
+             else
+             {
+                 data.setData(dataN);
+                 end.setEndCidade(cidade);
+                 end.setEndBairro(bairro);
+                 end.setEndRua(rua);
+                 end.setEndNum(num);
+                 
+                 Cliente cliente = new Cliente(cpf, nome, renda, dependentes, data, end);
+                 if(this.btn_alterar.isEnabled() == false && this.btn_excluir.isEnabled() == false)
+                 {
+                     cliente.cadastrar();
+                     JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!", "Cadastro", JOptionPane.INFORMATION_MESSAGE); 
+                 }
+                 
+                 else
+                 {
+                   cliente.alterar();
+                   JOptionPane.showMessageDialog(null, "Cliente alterado com sucesso!", "Alteração", JOptionPane.INFORMATION_MESSAGE);
+                 }
+
+             }
+         }
+         
+         else if(btn_cadastrar.isEnabled() == false && btn_alterar.isEnabled() == false) //Excluir
+         {
+            Cliente cliente = new Cliente(txt_cpf.getText());
+            cliente.excluir();
+            JOptionPane.showMessageDialog(null, "Cliente excluído com sucesso!", "Exclusão", JOptionPane.INFORMATION_MESSAGE); 
+         }
+         
+        btn_alterar.setEnabled(true);
+        btn_excluir.setEnabled(true);
+        btn_cadastrar.setEnabled(true);
+        btn_salvar.setEnabled(false);
+        
+        Font fonte = new Font("Tahoma", Font.PLAIN, 11);
+        
+        txt_cpf.setFont(fonte);
+        txt_cpf.setForeground(Color.LIGHT_GRAY);
+        txt_nome.setFont(fonte);
+        txt_nome.setForeground(Color.LIGHT_GRAY);
+        txt_dependentes.setFont(fonte);
+        txt_dependentes.setForeground(Color.LIGHT_GRAY);
+        txt_renda.setFont(fonte);
+        txt_renda.setForeground(Color.LIGHT_GRAY);
+        txt_nasc.setFont(fonte);
+        txt_nasc.setForeground(Color.LIGHT_GRAY);
+        txt_cidade.setFont(fonte);
+        txt_cidade.setForeground(Color.LIGHT_GRAY);
+        txt_bairro.setFont(fonte);
+        txt_bairro.setForeground(Color.LIGHT_GRAY);
+        txt_rua.setFont(fonte);
+        txt_rua.setForeground(Color.LIGHT_GRAY);
+        txt_num.setFont(fonte);
+        txt_num.setForeground(Color.LIGHT_GRAY);
+        txt_busca.setFont(fonte);
+        txt_busca.setForeground(Color.LIGHT_GRAY);
+        
+        txt_cpf.setText("CPF");
+        txt_nome.setText("Nome");
+        txt_dependentes.setText("Dependentes");
+        txt_renda.setText("Renda");
+        txt_nasc.setText("Data de nascimento: __/__/____");
+        txt_rua.setText("Rua");
+        txt_num.setText("Número");
+        txt_bairro.setText("Bairro");
+        txt_cidade.setText("Cidade");
+        txt_busca.setText("Buscar pelo número do CPF");
+        
+        txt_cpf.setEnabled(false);
+        txt_nome.setEnabled(false);
+        txt_dependentes.setEnabled(false);
+        txt_renda.setEnabled(false);
+        txt_nasc.setEnabled(false);
+        txt_rua.setEnabled(false);
+        txt_num.setEnabled(false);
+        txt_bairro.setEnabled(false);
+        txt_cidade.setEnabled(false);
+        
+    }//GEN-LAST:event_btn_salvarActionPerformed
 
     /**
      * @param args the command line arguments
